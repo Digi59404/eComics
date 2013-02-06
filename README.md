@@ -9,6 +9,7 @@ http://danrabbit.deviantart.com/art/XKCD-App-332444858
 AUTHORS
 =======
 Programmer: Chris Timberlake <Chris@TimberlakeTechnologies.com
+
 Artist: Daniel Foré - "Dan Rabbit"
 
 
