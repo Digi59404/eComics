@@ -1,0 +1,57 @@
+GtkToolbar {
+    -GtkWidget-window-dragging: true;
+    
+    padding: 1px;
+    
+    border-style: solid;
+    border-width: 0 0 0 0;
+    -unico-inner-stroke-width: 0 0 1 0;
+
+    border-color: shade (@bg_color, 0.56);
+	
+    background: none; /*-gtk-gradient (linear,
+				     left top,
+				     left bottom,
+				     from (@bg_color),
+				     to (shade (@bg_color, 0.84)));*/
+
+}
+
+GtkButton {
+
+    -GtkButton-child-displacement-x: 0;
+    -GtkButton-child-displacement-y: 0;
+    -GtkButton-default-border: 0;
+    -GtkButton-image-spacing: 4px;
+    -GtkButton-inner-border: 3;
+    -GtkButton-interior-focus: true;
+
+
+    background: none;
+
+    -unico-inner-stroke-gradient: -gtk-gradient (linear,
+        left top, left bottom,
+        from (alpha (#000, 0.00)),
+        to (alpha (#000, 0.00)));
+}
+
+GtkToolItem {
+
+    -GtkButton-child-displacement-x: 0;
+    -GtkButton-child-displacement-y: 0;
+    -GtkButton-default-border: 0;
+    -GtkButton-image-spacing: 4px;
+    -GtkButton-inner-border: 3;
+    -GtkButton-interior-focus: true;
+
+    background: none;
+
+    -unico-inner-stroke-gradient: -gtk-gradient (linear,
+        left top, left bottom,
+        from (alpha (#000, 0.00)),
+        to (alpha (#000, 0.00)));
+}
+
+GtkIconView {
+    background: none;
+}
