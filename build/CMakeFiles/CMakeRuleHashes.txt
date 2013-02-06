@@ -1,2 +1,0 @@
-# Hashes of file build rules.
-4f0d40a89235ce29436d36515b78f832 src/main.c
