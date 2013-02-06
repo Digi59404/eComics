@@ -1,3 +1,20 @@
+/*
+Copyright (c) 2013 Chris Timberlake <Chris@TimberlakeTechnologies.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal 
+in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
+of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+
+
+
 // Vala uses a syntax similar to C#. Anything that's in a namespace can be included by doing "using _NAMESPACE_";
 // We include GTK here because we want to build a Hello World Window.
 using Gtk;
@@ -112,17 +129,50 @@ namespace eComics {
             // EXIT BUTTON
             close.clicked.connect (() => m_window.destroy ());
             
-            // MENU BUTTON
-            var icon = new Gtk.Image.from_pixbuf (Gtk.IconTheme.get_default ().lookup_by_gicon (new ThemedIcon ("view-list-symbolic"), 16, 0).load_symbolic ({0.33, 0.33, 0.33, 0.33}));
-            Gtk.Button menu = new Gtk.Button();
-            menu.set_image(icon);
-            Gtk.ToolItem menu_t = new Gtk.ToolItem();
-            menu_t.add(menu);
+            // MENU/VIEW MODEBUTTON
+            var menu_t = new ToolModeButton();
+            
+            //var icon = new Gtk.Image.from_pixbuf (Gtk.IconTheme.get_default ().lookup_by_gicon (new ThemedIcon ("view-list-symbolic"), 16, 0).load_symbolic ({0.33, 0.33, 0.33, 0.33}));
+            //Gtk.Button menu = new Gtk.Button();
+            //menu.set_image(icon);
+            //Gtk.ToolItem menu_t = new Gtk.ToolItem();
+            //menu_t.add(menu);
+            //menu_t.margin_left = 10;
+            var menu = menu_t.Add_Button("", Gtk.IconTheme.get_default ().lookup_by_gicon (new ThemedIcon ("view-list-symbolic"), 16, 0).load_symbolic ({0.33, 0.33, 0.33, 0.33}));
+            var view1 = menu_t.Add_Button("", Gtk.IconTheme.get_default ().lookup_by_gicon (new ThemedIcon ("view-filter-symbolic"), 16, 0).load_symbolic ({0.33, 0.33, 0.33, 0.33}));
+            var view2 = menu_t.Add_Button("", Gtk.IconTheme.get_default ().lookup_by_gicon (new ThemedIcon ("view-coverflow-symbolic"), 16, 0).load_symbolic ({0.33, 0.33, 0.33, 0.33}));
+            menu_t.show_all();
             menu_t.margin_left = 10;
+            
+            menu.clicked.connect(() => {
+    		this.set_content(new Comic_Selection());
+            });
             
             // MODE BUTTON
             var mode = new ToolModeButton();
-            mode.margin_left = 20;
+            mode.margin_left = 10;
+            var btn1 = mode.Add_Button("", Gtk.IconTheme.get_default ().lookup_by_gicon (new ThemedIcon ("go-first-symbolic"), 16, 0).load_symbolic ({0.33, 0.33, 0.33, 0.33}));
+            var btn2 = mode.Add_Button("", Gtk.IconTheme.get_default ().lookup_by_gicon (new ThemedIcon ("go-previous-symbolic"), 16, 0).load_symbolic ({0.33, 0.33, 0.33, 0.33}));
+            var btn3 = mode.Add_Button("", Gtk.IconTheme.get_default ().lookup_by_gicon (new ThemedIcon ("go-next-symbolic"), 16, 0).load_symbolic ({0.33, 0.33, 0.33, 0.33}));
+            var btn4 = mode.Add_Button("", Gtk.IconTheme.get_default ().lookup_by_gicon (new ThemedIcon ("go-last-symbolic"), 16, 0).load_symbolic ({0.33, 0.33, 0.33, 0.33}));
+            mode.show_all();
+            
+            btn1.clicked.connect (() => {
+                print("HOLY COWS");
+
+            });
+            btn2.clicked.connect (() => {
+                print("HOLY COWS");
+
+            });
+            btn3.clicked.connect (() => {
+                print("HOLY COWS");
+
+            });
+            btn4.clicked.connect (() => {
+                print("HOLY COWS");
+
+            });
             
             // TITLE
             mw_title = new Gtk.Label(program_name);
@@ -148,12 +198,28 @@ namespace eComics {
             share_t.add(share);
             share_t.margin_left = 10;
             
+            // Share/Add Buttons
+            var sadd = new ToolModeButton();
+            var addbtn = sadd.Add_Button("", Gtk.IconTheme.get_default ().lookup_by_gicon (new ThemedIcon ("list-add-symbolic"), 16, 0).load_symbolic ({0.33, 0.33, 0.33, 0.33}));
+            var sharebtn = sadd.Add_Button("", Gtk.IconTheme.get_default ().lookup_by_gicon (new ThemedIcon ("document-export-symbolic"), 16, 0).load_symbolic ({0.33, 0.33, 0.33, 0.33}));
+            sadd.show_all();
+            
+            
+            // Fullscreen
+            var maximize = new Gtk.Button ();
+	    maximize.set_image(new Gtk.Image.from_file("/usr/share/themes/elementary/metacity-1/maximize.svg"));
+            Gtk.ToolItem maximize_t = new Gtk.ToolItem();
+            maximize_t.add(maximize);
+            maximize.clicked.connect (() => this.toggle_maximize() );
+            maximize_t.margin_left = 10;
+            
             toolbar.add(close_t);
             toolbar.add(menu_t);
             toolbar.add(mode);
 	    toolbar.add(main_title);
-	    toolbar.add(add_t);
-	    toolbar.add(share_t);
+	    toolbar.add(sadd);
+	    toolbar.add(maximize_t);
+
             
             
             //This adds the button to the main window.  
@@ -167,6 +233,7 @@ namespace eComics {
             m_window.add_content(main_content);
             //This forces the window to be shown.
             this.m_window.show_all();
+            this.m_window.fullscreen();
             
     	    //Sent the window to the Comic Manager so it knows whats up.
 	    Comic_Manager.Set_MainWindow(this);
@@ -178,6 +245,17 @@ namespace eComics {
             content_list.foreach((entry) => {
     		entry.destroy();               
             });
+        }
+        
+        // This is to check and see if it's maximized. If so, Minimize.
+        public void toggle_maximize(){
+          /*  if(this.maximized == "false"){
+                this.maximize ();
+                this.maximized = "true";
+            } else {
+                this.unmaximize ();
+                this.maximized = "false" ; 
+            } */
         }
         
         

@@ -5,7 +5,8 @@
 #include <glib.h>
 #include <glib-object.h>
 #include <gtk/gtk.h>
-#include <gio/gio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 
 
@@ -30,7 +31,6 @@ typedef struct _eComicsToolModeButtonPrivate eComicsToolModeButtonPrivate;
 typedef struct _GraniteWidgetsRowButton GraniteWidgetsRowButton;
 typedef struct _GraniteWidgetsRowButtonClass GraniteWidgetsRowButtonClass;
 #define _g_object_unref0(var) ((var == NULL) ? NULL : (var = (g_object_unref (var), NULL)))
-#define _gtk_icon_info_free0(var) ((var == NULL) ? NULL : (var = (gtk_icon_info_free (var), NULL)))
 
 struct _eComicsToolModeButton {
 	GtkToolItem parent_instance;
@@ -54,252 +54,56 @@ eComicsToolModeButton* ecomics_tool_mode_button_new (void);
 eComicsToolModeButton* ecomics_tool_mode_button_construct (GType object_type);
 GraniteWidgetsRowButton* granite_widgets_row_button_new (void);
 GraniteWidgetsRowButton* granite_widgets_row_button_construct (GType object_type);
+GtkButton* ecomics_tool_mode_button_Add_Button (eComicsToolModeButton* self, const gchar* label, GdkPixbuf* icon);
 GtkButton* granite_widgets_row_button_append_pixbuf (GraniteWidgetsRowButton* self, GdkPixbuf* pixbuf);
-static void __lambda6_ (eComicsToolModeButton* self);
-static void ___lambda6__gtk_button_clicked (GtkButton* _sender, gpointer self);
-static void __lambda7_ (eComicsToolModeButton* self);
-static void ___lambda7__gtk_button_clicked (GtkButton* _sender, gpointer self);
-static void __lambda8_ (eComicsToolModeButton* self);
-static void ___lambda8__gtk_button_clicked (GtkButton* _sender, gpointer self);
-static void __lambda9_ (eComicsToolModeButton* self);
-static void ___lambda9__gtk_button_clicked (GtkButton* _sender, gpointer self);
 static void ecomics_tool_mode_button_finalize (GObject* obj);
-
-
-static void __lambda6_ (eComicsToolModeButton* self) {
-	g_print ("HOLY COWS");
-}
-
-
-static void ___lambda6__gtk_button_clicked (GtkButton* _sender, gpointer self) {
-	__lambda6_ (self);
-}
-
-
-static void __lambda7_ (eComicsToolModeButton* self) {
-	g_print ("HOLY COWS");
-}
-
-
-static void ___lambda7__gtk_button_clicked (GtkButton* _sender, gpointer self) {
-	__lambda7_ (self);
-}
-
-
-static void __lambda8_ (eComicsToolModeButton* self) {
-	g_print ("HOLY COWS");
-}
-
-
-static void ___lambda8__gtk_button_clicked (GtkButton* _sender, gpointer self) {
-	__lambda8_ (self);
-}
-
-
-static void __lambda9_ (eComicsToolModeButton* self) {
-	g_print ("HOLY COWS");
-}
-
-
-static void ___lambda9__gtk_button_clicked (GtkButton* _sender, gpointer self) {
-	__lambda9_ (self);
-}
 
 
 eComicsToolModeButton* ecomics_tool_mode_button_construct (GType object_type) {
 	eComicsToolModeButton * self = NULL;
 	GraniteWidgetsRowButton* _tmp0_;
-	GtkIconTheme* _tmp1_ = NULL;
-	GThemedIcon* _tmp2_;
-	GThemedIcon* _tmp3_;
-	GtkIconInfo* _tmp4_ = NULL;
-	GtkIconInfo* _tmp5_;
-	GdkRGBA _tmp6_ = {0};
-	GdkPixbuf* _tmp7_ = NULL;
-	GdkPixbuf* _tmp8_;
-	GdkPixbuf* btn1_icon;
-	GraniteWidgetsRowButton* _tmp9_;
-	GdkPixbuf* _tmp10_;
-	GtkButton* _tmp11_ = NULL;
-	GtkButton* btn1;
-	GtkIconTheme* _tmp12_ = NULL;
-	GThemedIcon* _tmp13_;
-	GThemedIcon* _tmp14_;
-	GtkIconInfo* _tmp15_ = NULL;
-	GtkIconInfo* _tmp16_;
-	GdkRGBA _tmp17_ = {0};
-	GdkPixbuf* _tmp18_ = NULL;
-	GdkPixbuf* _tmp19_;
-	GdkPixbuf* btn2_icon;
-	GraniteWidgetsRowButton* _tmp20_;
-	GdkPixbuf* _tmp21_;
-	GtkButton* _tmp22_ = NULL;
-	GtkButton* btn2;
-	GtkIconTheme* _tmp23_ = NULL;
-	GThemedIcon* _tmp24_;
-	GThemedIcon* _tmp25_;
-	GtkIconInfo* _tmp26_ = NULL;
-	GtkIconInfo* _tmp27_;
-	GdkRGBA _tmp28_ = {0};
-	GdkPixbuf* _tmp29_ = NULL;
-	GdkPixbuf* _tmp30_;
-	GdkPixbuf* btn3_icon;
-	GraniteWidgetsRowButton* _tmp31_;
-	GdkPixbuf* _tmp32_;
-	GtkButton* _tmp33_ = NULL;
-	GtkButton* btn3;
-	GtkIconTheme* _tmp34_ = NULL;
-	GThemedIcon* _tmp35_;
-	GThemedIcon* _tmp36_;
-	GtkIconInfo* _tmp37_ = NULL;
-	GtkIconInfo* _tmp38_;
-	GdkRGBA _tmp39_ = {0};
-	GdkPixbuf* _tmp40_ = NULL;
-	GdkPixbuf* _tmp41_;
-	GdkPixbuf* btn4_icon;
-	GraniteWidgetsRowButton* _tmp42_;
-	GdkPixbuf* _tmp43_;
-	GtkButton* _tmp44_ = NULL;
-	GtkButton* btn4;
-	GtkButton* _tmp45_;
-	GtkButton* _tmp46_;
-	GtkButton* _tmp47_;
-	GtkButton* _tmp48_;
-	GraniteWidgetsRowButton* _tmp49_;
-	GError * _inner_error_ = NULL;
+	GraniteWidgetsRowButton* _tmp1_;
 	self = (eComicsToolModeButton*) g_object_new (object_type, NULL);
 	_tmp0_ = granite_widgets_row_button_new ();
 	g_object_ref_sink (_tmp0_);
 	_g_object_unref0 (self->modebutton);
 	self->modebutton = _tmp0_;
-	_tmp1_ = gtk_icon_theme_get_default ();
-	_tmp2_ = (GThemedIcon*) g_themed_icon_new ("go-first-symbolic");
-	_tmp3_ = _tmp2_;
-	_tmp4_ = gtk_icon_theme_lookup_by_gicon (_tmp1_, (GIcon*) _tmp3_, 16, 0);
-	_tmp5_ = _tmp4_;
-	_tmp6_.red = 0.33;
-	_tmp6_.green = 0.33;
-	_tmp6_.blue = 0.33;
-	_tmp6_.alpha = 0.33;
-	_tmp7_ = gtk_icon_info_load_symbolic (_tmp5_, &_tmp6_, NULL, NULL, NULL, NULL, &_inner_error_);
-	_tmp8_ = _tmp7_;
-	_gtk_icon_info_free0 (_tmp5_);
-	_g_object_unref0 (_tmp3_);
-	btn1_icon = _tmp8_;
-	if (_inner_error_ != NULL) {
-		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
-		g_clear_error (&_inner_error_);
-		return NULL;
-	}
-	_tmp9_ = self->modebutton;
-	_tmp10_ = btn1_icon;
-	_tmp11_ = granite_widgets_row_button_append_pixbuf (_tmp9_, _tmp10_);
-	btn1 = _tmp11_;
-	_tmp12_ = gtk_icon_theme_get_default ();
-	_tmp13_ = (GThemedIcon*) g_themed_icon_new ("go-previous-symbolic");
-	_tmp14_ = _tmp13_;
-	_tmp15_ = gtk_icon_theme_lookup_by_gicon (_tmp12_, (GIcon*) _tmp14_, 16, 0);
-	_tmp16_ = _tmp15_;
-	_tmp17_.red = 0.33;
-	_tmp17_.green = 0.33;
-	_tmp17_.blue = 0.33;
-	_tmp17_.alpha = 0.33;
-	_tmp18_ = gtk_icon_info_load_symbolic (_tmp16_, &_tmp17_, NULL, NULL, NULL, NULL, &_inner_error_);
-	_tmp19_ = _tmp18_;
-	_gtk_icon_info_free0 (_tmp16_);
-	_g_object_unref0 (_tmp14_);
-	btn2_icon = _tmp19_;
-	if (_inner_error_ != NULL) {
-		_g_object_unref0 (btn1);
-		_g_object_unref0 (btn1_icon);
-		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
-		g_clear_error (&_inner_error_);
-		return NULL;
-	}
-	_tmp20_ = self->modebutton;
-	_tmp21_ = btn2_icon;
-	_tmp22_ = granite_widgets_row_button_append_pixbuf (_tmp20_, _tmp21_);
-	btn2 = _tmp22_;
-	_tmp23_ = gtk_icon_theme_get_default ();
-	_tmp24_ = (GThemedIcon*) g_themed_icon_new ("go-next-symbolic");
-	_tmp25_ = _tmp24_;
-	_tmp26_ = gtk_icon_theme_lookup_by_gicon (_tmp23_, (GIcon*) _tmp25_, 16, 0);
-	_tmp27_ = _tmp26_;
-	_tmp28_.red = 0.33;
-	_tmp28_.green = 0.33;
-	_tmp28_.blue = 0.33;
-	_tmp28_.alpha = 0.33;
-	_tmp29_ = gtk_icon_info_load_symbolic (_tmp27_, &_tmp28_, NULL, NULL, NULL, NULL, &_inner_error_);
-	_tmp30_ = _tmp29_;
-	_gtk_icon_info_free0 (_tmp27_);
-	_g_object_unref0 (_tmp25_);
-	btn3_icon = _tmp30_;
-	if (_inner_error_ != NULL) {
-		_g_object_unref0 (btn2);
-		_g_object_unref0 (btn2_icon);
-		_g_object_unref0 (btn1);
-		_g_object_unref0 (btn1_icon);
-		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
-		g_clear_error (&_inner_error_);
-		return NULL;
-	}
-	_tmp31_ = self->modebutton;
-	_tmp32_ = btn3_icon;
-	_tmp33_ = granite_widgets_row_button_append_pixbuf (_tmp31_, _tmp32_);
-	btn3 = _tmp33_;
-	_tmp34_ = gtk_icon_theme_get_default ();
-	_tmp35_ = (GThemedIcon*) g_themed_icon_new ("go-last-symbolic");
-	_tmp36_ = _tmp35_;
-	_tmp37_ = gtk_icon_theme_lookup_by_gicon (_tmp34_, (GIcon*) _tmp36_, 16, 0);
-	_tmp38_ = _tmp37_;
-	_tmp39_.red = 0.33;
-	_tmp39_.green = 0.33;
-	_tmp39_.blue = 0.33;
-	_tmp39_.alpha = 0.33;
-	_tmp40_ = gtk_icon_info_load_symbolic (_tmp38_, &_tmp39_, NULL, NULL, NULL, NULL, &_inner_error_);
-	_tmp41_ = _tmp40_;
-	_gtk_icon_info_free0 (_tmp38_);
-	_g_object_unref0 (_tmp36_);
-	btn4_icon = _tmp41_;
-	if (_inner_error_ != NULL) {
-		_g_object_unref0 (btn3);
-		_g_object_unref0 (btn3_icon);
-		_g_object_unref0 (btn2);
-		_g_object_unref0 (btn2_icon);
-		_g_object_unref0 (btn1);
-		_g_object_unref0 (btn1_icon);
-		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
-		g_clear_error (&_inner_error_);
-		return NULL;
-	}
-	_tmp42_ = self->modebutton;
-	_tmp43_ = btn4_icon;
-	_tmp44_ = granite_widgets_row_button_append_pixbuf (_tmp42_, _tmp43_);
-	btn4 = _tmp44_;
-	_tmp45_ = btn1;
-	g_signal_connect_object (_tmp45_, "clicked", (GCallback) ___lambda6__gtk_button_clicked, self, 0);
-	_tmp46_ = btn2;
-	g_signal_connect_object (_tmp46_, "clicked", (GCallback) ___lambda7__gtk_button_clicked, self, 0);
-	_tmp47_ = btn3;
-	g_signal_connect_object (_tmp47_, "clicked", (GCallback) ___lambda8__gtk_button_clicked, self, 0);
-	_tmp48_ = btn4;
-	g_signal_connect_object (_tmp48_, "clicked", (GCallback) ___lambda9__gtk_button_clicked, self, 0);
-	_tmp49_ = self->modebutton;
-	gtk_container_add ((GtkContainer*) self, (GtkWidget*) _tmp49_);
-	_g_object_unref0 (btn4);
-	_g_object_unref0 (btn4_icon);
-	_g_object_unref0 (btn3);
-	_g_object_unref0 (btn3_icon);
-	_g_object_unref0 (btn2);
-	_g_object_unref0 (btn2_icon);
-	_g_object_unref0 (btn1);
-	_g_object_unref0 (btn1_icon);
+	_tmp1_ = self->modebutton;
+	gtk_container_add ((GtkContainer*) self, (GtkWidget*) _tmp1_);
 	return self;
 }
 
 
 eComicsToolModeButton* ecomics_tool_mode_button_new (void) {
 	return ecomics_tool_mode_button_construct (ECOMICS_TYPE_TOOL_MODE_BUTTON);
+}
+
+
+static gpointer _g_object_ref0 (gpointer self) {
+	return self ? g_object_ref (self) : NULL;
+}
+
+
+GtkButton* ecomics_tool_mode_button_Add_Button (eComicsToolModeButton* self, const gchar* label, GdkPixbuf* icon) {
+	GtkButton* result = NULL;
+	GdkPixbuf* _tmp0_;
+	GdkPixbuf* _tmp1_;
+	GdkPixbuf* btn_icon;
+	GraniteWidgetsRowButton* _tmp2_;
+	GtkButton* _tmp3_ = NULL;
+	GtkButton* btn;
+	g_return_val_if_fail (self != NULL, NULL);
+	g_return_val_if_fail (label != NULL, NULL);
+	g_return_val_if_fail (icon != NULL, NULL);
+	_tmp0_ = icon;
+	_tmp1_ = _g_object_ref0 (_tmp0_);
+	btn_icon = _tmp1_;
+	_tmp2_ = self->modebutton;
+	_tmp3_ = granite_widgets_row_button_append_pixbuf (_tmp2_, btn_icon);
+	btn = _tmp3_;
+	result = btn;
+	_g_object_unref0 (btn_icon);
+	return result;
 }
 
 

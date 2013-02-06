@@ -39,7 +39,6 @@ typedef struct _GraniteWidgetsBasicDialogClass GraniteWidgetsBasicDialogClass;
 #define _g_object_unref0(var) ((var == NULL) ? NULL : (var = (g_object_unref (var), NULL)))
 #define _g_free0(var) (var = (g_free (var), NULL))
 #define _g_error_free0(var) ((var == NULL) ? NULL : (var = (g_error_free (var), NULL)))
-#define _gtk_icon_info_free0(var) ((var == NULL) ? NULL : (var = (gtk_icon_info_free (var), NULL)))
 
 #define ECOMICS_TYPE_TOOL_MODE_BUTTON (ecomics_tool_mode_button_get_type ())
 #define ECOMICS_TOOL_MODE_BUTTON(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), ECOMICS_TYPE_TOOL_MODE_BUTTON, eComicsToolModeButton))
@@ -50,7 +49,7 @@ typedef struct _GraniteWidgetsBasicDialogClass GraniteWidgetsBasicDialogClass;
 
 typedef struct _eComicsToolModeButton eComicsToolModeButton;
 typedef struct _eComicsToolModeButtonClass eComicsToolModeButtonClass;
-#define __vala_PangoFontDescription_free0(var) ((var == NULL) ? NULL : (var = (_vala_PangoFontDescription_free (var), NULL)))
+#define _gtk_icon_info_free0(var) ((var == NULL) ? NULL : (var = (gtk_icon_info_free (var), NULL)))
 
 #define ECOMICS_TYPE_COMIC_SELECTION (ecomics_comic_selection_get_type ())
 #define ECOMICS_COMIC_SELECTION(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), ECOMICS_TYPE_COMIC_SELECTION, eComicsComic_Selection))
@@ -61,6 +60,7 @@ typedef struct _eComicsToolModeButtonClass eComicsToolModeButtonClass;
 
 typedef struct _eComicsComic_Selection eComicsComic_Selection;
 typedef struct _eComicsComic_SelectionClass eComicsComic_SelectionClass;
+#define __vala_PangoFontDescription_free0(var) ((var == NULL) ? NULL : (var = (_vala_PangoFontDescription_free (var), NULL)))
 #define _g_list_free0(var) ((var == NULL) ? NULL : (var = (g_list_free (var), NULL)))
 
 struct _eComicseComics_MW {
@@ -95,16 +95,30 @@ static void ___lambda5__gtk_button_clicked (GtkButton* _sender, gpointer self);
 eComicsToolModeButton* ecomics_tool_mode_button_new (void);
 eComicsToolModeButton* ecomics_tool_mode_button_construct (GType object_type);
 GType ecomics_tool_mode_button_get_type (void) G_GNUC_CONST;
-static void _vala_PangoFontDescription_free (PangoFontDescription* self);
+GtkButton* ecomics_tool_mode_button_Add_Button (eComicsToolModeButton* self, const gchar* label, GdkPixbuf* icon);
+static void __lambda6_ (eComicseComics_MW* self);
+void ecomics_ecomics_mw_set_content (eComicseComics_MW* self, GtkWidget* widget);
 eComicsComic_Selection* ecomics_comic_selection_new (void);
 eComicsComic_Selection* ecomics_comic_selection_construct (GType object_type);
 GType ecomics_comic_selection_get_type (void) G_GNUC_CONST;
+static void ___lambda6__gtk_button_clicked (GtkButton* _sender, gpointer self);
+static void __lambda9_ (eComicseComics_MW* self);
+static void ___lambda9__gtk_button_clicked (GtkButton* _sender, gpointer self);
+static void __lambda10_ (eComicseComics_MW* self);
+static void ___lambda10__gtk_button_clicked (GtkButton* _sender, gpointer self);
+static void __lambda11_ (eComicseComics_MW* self);
+static void ___lambda11__gtk_button_clicked (GtkButton* _sender, gpointer self);
+static void __lambda12_ (eComicseComics_MW* self);
+static void ___lambda12__gtk_button_clicked (GtkButton* _sender, gpointer self);
+static void _vala_PangoFontDescription_free (PangoFontDescription* self);
+static void __lambda13_ (eComicseComics_MW* self);
+void ecomics_ecomics_mw_toggle_maximize (eComicseComics_MW* self);
+static void ___lambda13__gtk_button_clicked (GtkButton* _sender, gpointer self);
 void granite_widgets_basic_dialog_add_content (GraniteWidgetsBasicDialog* self, GtkWidget* widget);
 void ecomics_comic_manager_Set_MainWindow (eComicseComics_MW* main);
 void ecomics_ecomics_mw_empty_content (eComicseComics_MW* self);
-static void __lambda11_ (eComicseComics_MW* self, GtkWidget* entry);
-static void ___lambda11__gfunc (gconstpointer data, gpointer self);
-void ecomics_ecomics_mw_set_content (eComicseComics_MW* self, GtkWidget* widget);
+static void __lambda7_ (eComicseComics_MW* self, GtkWidget* entry);
+static void ___lambda7__gfunc (gconstpointer data, gpointer self);
 static GObject * ecomics_ecomics_mw_constructor (GType type, guint n_construct_properties, GObjectConstructParam * construct_properties);
 static void ecomics_ecomics_mw_finalize (GObject* obj);
 gint _vala_main (gchar** args, int args_length1);
@@ -134,8 +148,74 @@ static void ___lambda5__gtk_button_clicked (GtkButton* _sender, gpointer self) {
 }
 
 
+static void __lambda6_ (eComicseComics_MW* self) {
+	eComicsComic_Selection* _tmp0_;
+	eComicsComic_Selection* _tmp1_;
+	_tmp0_ = ecomics_comic_selection_new ();
+	g_object_ref_sink (_tmp0_);
+	_tmp1_ = _tmp0_;
+	ecomics_ecomics_mw_set_content (self, (GtkWidget*) _tmp1_);
+	_g_object_unref0 (_tmp1_);
+}
+
+
+static void ___lambda6__gtk_button_clicked (GtkButton* _sender, gpointer self) {
+	__lambda6_ (self);
+}
+
+
+static void __lambda9_ (eComicseComics_MW* self) {
+	g_print ("HOLY COWS");
+}
+
+
+static void ___lambda9__gtk_button_clicked (GtkButton* _sender, gpointer self) {
+	__lambda9_ (self);
+}
+
+
+static void __lambda10_ (eComicseComics_MW* self) {
+	g_print ("HOLY COWS");
+}
+
+
+static void ___lambda10__gtk_button_clicked (GtkButton* _sender, gpointer self) {
+	__lambda10_ (self);
+}
+
+
+static void __lambda11_ (eComicseComics_MW* self) {
+	g_print ("HOLY COWS");
+}
+
+
+static void ___lambda11__gtk_button_clicked (GtkButton* _sender, gpointer self) {
+	__lambda11_ (self);
+}
+
+
+static void __lambda12_ (eComicseComics_MW* self) {
+	g_print ("HOLY COWS");
+}
+
+
+static void ___lambda12__gtk_button_clicked (GtkButton* _sender, gpointer self) {
+	__lambda12_ (self);
+}
+
+
 static void _vala_PangoFontDescription_free (PangoFontDescription* self) {
 	g_boxed_free (pango_font_description_get_type (), self);
+}
+
+
+static void __lambda13_ (eComicseComics_MW* self) {
+	ecomics_ecomics_mw_toggle_maximize (self);
+}
+
+
+static void ___lambda13__gtk_button_clicked (GtkButton* _sender, gpointer self) {
+	__lambda13_ (self);
 }
 
 
@@ -167,108 +247,237 @@ static void ecomics_ecomics_mw_real_activate (GApplication* base) {
 	GtkToolItem* _tmp27_;
 	GtkButton* _tmp28_;
 	GtkButton* _tmp29_;
-	GtkIconTheme* _tmp30_ = NULL;
-	GThemedIcon* _tmp31_;
+	eComicsToolModeButton* _tmp30_;
+	eComicsToolModeButton* menu_t;
+	GtkIconTheme* _tmp31_ = NULL;
 	GThemedIcon* _tmp32_;
-	GtkIconInfo* _tmp33_ = NULL;
-	GtkIconInfo* _tmp34_;
-	GdkRGBA _tmp35_ = {0};
-	GdkPixbuf* _tmp36_ = NULL;
-	GdkPixbuf* _tmp37_;
+	GThemedIcon* _tmp33_;
+	GtkIconInfo* _tmp34_ = NULL;
+	GtkIconInfo* _tmp35_;
+	GdkRGBA _tmp36_ = {0};
+	GdkPixbuf* _tmp37_ = NULL;
 	GdkPixbuf* _tmp38_;
 	GdkPixbuf* _tmp39_;
-	GtkImage* _tmp40_;
-	GtkImage* _tmp41_;
-	GtkImage* icon;
-	GtkButton* _tmp42_;
-	GtkButton* menu;
+	eComicsToolModeButton* _tmp40_;
+	GdkPixbuf* _tmp41_;
+	GtkButton* _tmp42_ = NULL;
 	GtkButton* _tmp43_;
-	GtkImage* _tmp44_;
-	GtkToolItem* _tmp45_;
-	GtkToolItem* menu_t;
-	GtkToolItem* _tmp46_;
-	GtkButton* _tmp47_;
-	GtkToolItem* _tmp48_;
-	eComicsToolModeButton* _tmp49_;
+	GtkButton* menu;
+	GtkIconTheme* _tmp44_ = NULL;
+	GThemedIcon* _tmp45_;
+	GThemedIcon* _tmp46_;
+	GtkIconInfo* _tmp47_ = NULL;
+	GtkIconInfo* _tmp48_;
+	GdkRGBA _tmp49_ = {0};
+	GdkPixbuf* _tmp50_ = NULL;
+	GdkPixbuf* _tmp51_;
+	GdkPixbuf* _tmp52_;
+	eComicsToolModeButton* _tmp53_;
+	GdkPixbuf* _tmp54_;
+	GtkButton* _tmp55_ = NULL;
+	GtkButton* _tmp56_;
+	GtkButton* view1;
+	GtkIconTheme* _tmp57_ = NULL;
+	GThemedIcon* _tmp58_;
+	GThemedIcon* _tmp59_;
+	GtkIconInfo* _tmp60_ = NULL;
+	GtkIconInfo* _tmp61_;
+	GdkRGBA _tmp62_ = {0};
+	GdkPixbuf* _tmp63_ = NULL;
+	GdkPixbuf* _tmp64_;
+	GdkPixbuf* _tmp65_;
+	eComicsToolModeButton* _tmp66_;
+	GdkPixbuf* _tmp67_;
+	GtkButton* _tmp68_ = NULL;
+	GtkButton* _tmp69_;
+	GtkButton* view2;
+	eComicsToolModeButton* _tmp70_;
+	eComicsToolModeButton* _tmp71_;
+	GtkButton* _tmp72_;
+	eComicsToolModeButton* _tmp73_;
 	eComicsToolModeButton* mode;
-	eComicsToolModeButton* _tmp50_;
-	const gchar* _tmp51_;
-	GtkLabel* _tmp52_;
-	GtkLabel* _tmp53_;
-	PangoFontDescription* _tmp54_ = NULL;
-	PangoFontDescription* _tmp55_;
-	GtkToolItem* _tmp56_;
-	GtkToolItem* _tmp57_;
-	GtkLabel* _tmp58_;
-	GtkToolItem* _tmp59_;
-	GtkToolItem* _tmp60_;
-	GtkIconTheme* _tmp61_ = NULL;
-	GThemedIcon* _tmp62_;
-	GThemedIcon* _tmp63_;
-	GtkIconInfo* _tmp64_ = NULL;
-	GtkIconInfo* _tmp65_;
-	GdkRGBA _tmp66_ = {0};
-	GdkPixbuf* _tmp67_ = NULL;
-	GdkPixbuf* _tmp68_;
-	GdkPixbuf* _tmp69_;
-	GdkPixbuf* _tmp70_;
-	GtkImage* _tmp71_;
-	GtkImage* _tmp72_;
+	eComicsToolModeButton* _tmp74_;
+	GtkIconTheme* _tmp75_ = NULL;
+	GThemedIcon* _tmp76_;
+	GThemedIcon* _tmp77_;
+	GtkIconInfo* _tmp78_ = NULL;
+	GtkIconInfo* _tmp79_;
+	GdkRGBA _tmp80_ = {0};
+	GdkPixbuf* _tmp81_ = NULL;
+	GdkPixbuf* _tmp82_;
+	GdkPixbuf* _tmp83_;
+	eComicsToolModeButton* _tmp84_;
+	GdkPixbuf* _tmp85_;
+	GtkButton* _tmp86_ = NULL;
+	GtkButton* _tmp87_;
+	GtkButton* btn1;
+	GtkIconTheme* _tmp88_ = NULL;
+	GThemedIcon* _tmp89_;
+	GThemedIcon* _tmp90_;
+	GtkIconInfo* _tmp91_ = NULL;
+	GtkIconInfo* _tmp92_;
+	GdkRGBA _tmp93_ = {0};
+	GdkPixbuf* _tmp94_ = NULL;
+	GdkPixbuf* _tmp95_;
+	GdkPixbuf* _tmp96_;
+	eComicsToolModeButton* _tmp97_;
+	GdkPixbuf* _tmp98_;
+	GtkButton* _tmp99_ = NULL;
+	GtkButton* _tmp100_;
+	GtkButton* btn2;
+	GtkIconTheme* _tmp101_ = NULL;
+	GThemedIcon* _tmp102_;
+	GThemedIcon* _tmp103_;
+	GtkIconInfo* _tmp104_ = NULL;
+	GtkIconInfo* _tmp105_;
+	GdkRGBA _tmp106_ = {0};
+	GdkPixbuf* _tmp107_ = NULL;
+	GdkPixbuf* _tmp108_;
+	GdkPixbuf* _tmp109_;
+	eComicsToolModeButton* _tmp110_;
+	GdkPixbuf* _tmp111_;
+	GtkButton* _tmp112_ = NULL;
+	GtkButton* _tmp113_;
+	GtkButton* btn3;
+	GtkIconTheme* _tmp114_ = NULL;
+	GThemedIcon* _tmp115_;
+	GThemedIcon* _tmp116_;
+	GtkIconInfo* _tmp117_ = NULL;
+	GtkIconInfo* _tmp118_;
+	GdkRGBA _tmp119_ = {0};
+	GdkPixbuf* _tmp120_ = NULL;
+	GdkPixbuf* _tmp121_;
+	GdkPixbuf* _tmp122_;
+	eComicsToolModeButton* _tmp123_;
+	GdkPixbuf* _tmp124_;
+	GtkButton* _tmp125_ = NULL;
+	GtkButton* _tmp126_;
+	GtkButton* btn4;
+	eComicsToolModeButton* _tmp127_;
+	GtkButton* _tmp128_;
+	GtkButton* _tmp129_;
+	GtkButton* _tmp130_;
+	GtkButton* _tmp131_;
+	const gchar* _tmp132_;
+	GtkLabel* _tmp133_;
+	GtkLabel* _tmp134_;
+	PangoFontDescription* _tmp135_ = NULL;
+	PangoFontDescription* _tmp136_;
+	GtkToolItem* _tmp137_;
+	GtkToolItem* _tmp138_;
+	GtkLabel* _tmp139_;
+	GtkToolItem* _tmp140_;
+	GtkToolItem* _tmp141_;
+	GtkIconTheme* _tmp142_ = NULL;
+	GThemedIcon* _tmp143_;
+	GThemedIcon* _tmp144_;
+	GtkIconInfo* _tmp145_ = NULL;
+	GtkIconInfo* _tmp146_;
+	GdkRGBA _tmp147_ = {0};
+	GdkPixbuf* _tmp148_ = NULL;
+	GdkPixbuf* _tmp149_;
+	GdkPixbuf* _tmp150_;
+	GdkPixbuf* _tmp151_;
+	GtkImage* _tmp152_;
+	GtkImage* _tmp153_;
 	GtkImage* add_icon;
-	GtkButton* _tmp73_;
+	GtkButton* _tmp154_;
 	GtkButton* add;
-	GtkButton* _tmp74_;
-	GtkImage* _tmp75_;
-	GtkToolItem* _tmp76_;
+	GtkButton* _tmp155_;
+	GtkImage* _tmp156_;
+	GtkToolItem* _tmp157_;
 	GtkToolItem* add_t;
-	GtkToolItem* _tmp77_;
-	GtkButton* _tmp78_;
-	GtkToolItem* _tmp79_;
-	GtkIconTheme* _tmp80_ = NULL;
-	GThemedIcon* _tmp81_;
-	GThemedIcon* _tmp82_;
-	GtkIconInfo* _tmp83_ = NULL;
-	GtkIconInfo* _tmp84_;
-	GdkRGBA _tmp85_ = {0};
-	GdkPixbuf* _tmp86_ = NULL;
-	GdkPixbuf* _tmp87_;
-	GdkPixbuf* _tmp88_;
-	GdkPixbuf* _tmp89_;
-	GtkImage* _tmp90_;
-	GtkImage* _tmp91_;
+	GtkToolItem* _tmp158_;
+	GtkButton* _tmp159_;
+	GtkToolItem* _tmp160_;
+	GtkIconTheme* _tmp161_ = NULL;
+	GThemedIcon* _tmp162_;
+	GThemedIcon* _tmp163_;
+	GtkIconInfo* _tmp164_ = NULL;
+	GtkIconInfo* _tmp165_;
+	GdkRGBA _tmp166_ = {0};
+	GdkPixbuf* _tmp167_ = NULL;
+	GdkPixbuf* _tmp168_;
+	GdkPixbuf* _tmp169_;
+	GdkPixbuf* _tmp170_;
+	GtkImage* _tmp171_;
+	GtkImage* _tmp172_;
 	GtkImage* share_icon;
-	GtkButton* _tmp92_;
+	GtkButton* _tmp173_;
 	GtkButton* share;
-	GtkButton* _tmp93_;
-	GtkImage* _tmp94_;
-	GtkToolItem* _tmp95_;
+	GtkButton* _tmp174_;
+	GtkImage* _tmp175_;
+	GtkToolItem* _tmp176_;
 	GtkToolItem* share_t;
-	GtkToolItem* _tmp96_;
-	GtkButton* _tmp97_;
-	GtkToolItem* _tmp98_;
-	GtkToolbar* _tmp99_;
-	GtkToolItem* _tmp100_;
-	GtkToolbar* _tmp101_;
-	GtkToolItem* _tmp102_;
-	GtkToolbar* _tmp103_;
-	eComicsToolModeButton* _tmp104_;
-	GtkToolbar* _tmp105_;
-	GtkToolItem* _tmp106_;
-	GtkToolbar* _tmp107_;
-	GtkToolItem* _tmp108_;
-	GtkToolbar* _tmp109_;
-	GtkToolItem* _tmp110_;
-	GtkBox* _tmp111_;
-	GtkToolbar* _tmp112_;
-	GtkBox* _tmp113_;
-	GtkBox* _tmp114_;
-	eComicsComic_Selection* _tmp115_;
-	eComicsComic_Selection* _tmp116_;
-	GtkBox* _tmp117_;
-	GtkBox* _tmp118_;
-	GraniteWidgetsBasicDialog* _tmp119_;
-	GtkBox* _tmp120_;
-	GraniteWidgetsBasicDialog* _tmp121_;
+	GtkToolItem* _tmp177_;
+	GtkButton* _tmp178_;
+	GtkToolItem* _tmp179_;
+	eComicsToolModeButton* _tmp180_;
+	eComicsToolModeButton* sadd;
+	GtkIconTheme* _tmp181_ = NULL;
+	GThemedIcon* _tmp182_;
+	GThemedIcon* _tmp183_;
+	GtkIconInfo* _tmp184_ = NULL;
+	GtkIconInfo* _tmp185_;
+	GdkRGBA _tmp186_ = {0};
+	GdkPixbuf* _tmp187_ = NULL;
+	GdkPixbuf* _tmp188_;
+	GdkPixbuf* _tmp189_;
+	eComicsToolModeButton* _tmp190_;
+	GdkPixbuf* _tmp191_;
+	GtkButton* _tmp192_ = NULL;
+	GtkButton* _tmp193_;
+	GtkButton* addbtn;
+	GtkIconTheme* _tmp194_ = NULL;
+	GThemedIcon* _tmp195_;
+	GThemedIcon* _tmp196_;
+	GtkIconInfo* _tmp197_ = NULL;
+	GtkIconInfo* _tmp198_;
+	GdkRGBA _tmp199_ = {0};
+	GdkPixbuf* _tmp200_ = NULL;
+	GdkPixbuf* _tmp201_;
+	GdkPixbuf* _tmp202_;
+	eComicsToolModeButton* _tmp203_;
+	GdkPixbuf* _tmp204_;
+	GtkButton* _tmp205_ = NULL;
+	GtkButton* _tmp206_;
+	GtkButton* sharebtn;
+	eComicsToolModeButton* _tmp207_;
+	GtkButton* _tmp208_;
+	GtkButton* maximize;
+	GtkButton* _tmp209_;
+	GtkImage* _tmp210_;
+	GtkImage* _tmp211_;
+	GtkToolItem* _tmp212_;
+	GtkToolItem* maximize_t;
+	GtkToolItem* _tmp213_;
+	GtkButton* _tmp214_;
+	GtkButton* _tmp215_;
+	GtkToolItem* _tmp216_;
+	GtkToolbar* _tmp217_;
+	GtkToolItem* _tmp218_;
+	GtkToolbar* _tmp219_;
+	eComicsToolModeButton* _tmp220_;
+	GtkToolbar* _tmp221_;
+	eComicsToolModeButton* _tmp222_;
+	GtkToolbar* _tmp223_;
+	GtkToolItem* _tmp224_;
+	GtkToolbar* _tmp225_;
+	eComicsToolModeButton* _tmp226_;
+	GtkToolbar* _tmp227_;
+	GtkToolItem* _tmp228_;
+	GtkBox* _tmp229_;
+	GtkToolbar* _tmp230_;
+	GtkBox* _tmp231_;
+	GtkBox* _tmp232_;
+	eComicsComic_Selection* _tmp233_;
+	eComicsComic_Selection* _tmp234_;
+	GtkBox* _tmp235_;
+	GtkBox* _tmp236_;
+	GraniteWidgetsBasicDialog* _tmp237_;
+	GtkBox* _tmp238_;
+	GraniteWidgetsBasicDialog* _tmp239_;
+	GraniteWidgetsBasicDialog* _tmp240_;
 	GError * _inner_error_ = NULL;
 	self = (eComicseComics_MW*) base;
 	{
@@ -368,21 +577,25 @@ static void ecomics_ecomics_mw_real_activate (GApplication* base) {
 	gtk_container_add ((GtkContainer*) _tmp27_, (GtkWidget*) _tmp28_);
 	_tmp29_ = close;
 	g_signal_connect_object (_tmp29_, "clicked", (GCallback) ___lambda5__gtk_button_clicked, self, 0);
-	_tmp30_ = gtk_icon_theme_get_default ();
-	_tmp31_ = (GThemedIcon*) g_themed_icon_new ("view-list-symbolic");
-	_tmp32_ = _tmp31_;
-	_tmp33_ = gtk_icon_theme_lookup_by_gicon (_tmp30_, (GIcon*) _tmp32_, 16, 0);
-	_tmp34_ = _tmp33_;
-	_tmp35_.red = 0.33;
-	_tmp35_.green = 0.33;
-	_tmp35_.blue = 0.33;
-	_tmp35_.alpha = 0.33;
-	_tmp36_ = gtk_icon_info_load_symbolic (_tmp34_, &_tmp35_, NULL, NULL, NULL, NULL, &_inner_error_);
-	_tmp37_ = _tmp36_;
-	_gtk_icon_info_free0 (_tmp34_);
-	_g_object_unref0 (_tmp32_);
+	_tmp30_ = ecomics_tool_mode_button_new ();
+	g_object_ref_sink (_tmp30_);
+	menu_t = _tmp30_;
+	_tmp31_ = gtk_icon_theme_get_default ();
+	_tmp32_ = (GThemedIcon*) g_themed_icon_new ("view-list-symbolic");
+	_tmp33_ = _tmp32_;
+	_tmp34_ = gtk_icon_theme_lookup_by_gicon (_tmp31_, (GIcon*) _tmp33_, 16, 0);
+	_tmp35_ = _tmp34_;
+	_tmp36_.red = 0.33;
+	_tmp36_.green = 0.33;
+	_tmp36_.blue = 0.33;
+	_tmp36_.alpha = 0.33;
+	_tmp37_ = gtk_icon_info_load_symbolic (_tmp35_, &_tmp36_, NULL, NULL, NULL, NULL, &_inner_error_);
 	_tmp38_ = _tmp37_;
+	_gtk_icon_info_free0 (_tmp35_);
+	_g_object_unref0 (_tmp33_);
+	_tmp39_ = _tmp38_;
 	if (_inner_error_ != NULL) {
+		_g_object_unref0 (menu_t);
 		_g_object_unref0 (close_t);
 		_g_object_unref0 (close);
 		_g_object_unref0 (toolbar);
@@ -392,71 +605,108 @@ static void ecomics_ecomics_mw_real_activate (GApplication* base) {
 		g_clear_error (&_inner_error_);
 		return;
 	}
-	_tmp39_ = _tmp38_;
-	_tmp40_ = (GtkImage*) gtk_image_new_from_pixbuf (_tmp39_);
-	g_object_ref_sink (_tmp40_);
-	_tmp41_ = _tmp40_;
-	_g_object_unref0 (_tmp39_);
-	icon = _tmp41_;
-	_tmp42_ = (GtkButton*) gtk_button_new ();
-	g_object_ref_sink (_tmp42_);
-	menu = _tmp42_;
-	_tmp43_ = menu;
-	_tmp44_ = icon;
-	gtk_button_set_image (_tmp43_, (GtkWidget*) _tmp44_);
-	_tmp45_ = gtk_tool_item_new ();
-	g_object_ref_sink (_tmp45_);
-	menu_t = _tmp45_;
-	_tmp46_ = menu_t;
-	_tmp47_ = menu;
-	gtk_container_add ((GtkContainer*) _tmp46_, (GtkWidget*) _tmp47_);
-	_tmp48_ = menu_t;
-	gtk_widget_set_margin_left ((GtkWidget*) _tmp48_, 10);
-	_tmp49_ = ecomics_tool_mode_button_new ();
-	g_object_ref_sink (_tmp49_);
-	mode = _tmp49_;
-	_tmp50_ = mode;
-	gtk_widget_set_margin_left ((GtkWidget*) _tmp50_, 20);
-	_tmp51_ = ((GraniteApplication*) self)->program_name;
-	_tmp52_ = (GtkLabel*) gtk_label_new (_tmp51_);
-	g_object_ref_sink (_tmp52_);
-	_g_object_unref0 (self->mw_title);
-	self->mw_title = _tmp52_;
-	_tmp53_ = self->mw_title;
-	_tmp54_ = pango_font_description_from_string ("bold");
-	_tmp55_ = _tmp54_;
-	gtk_widget_override_font ((GtkWidget*) _tmp53_, _tmp55_);
-	__vala_PangoFontDescription_free0 (_tmp55_);
-	_tmp56_ = gtk_tool_item_new ();
-	g_object_ref_sink (_tmp56_);
-	_g_object_unref0 (self->main_title);
-	self->main_title = _tmp56_;
-	_tmp57_ = self->main_title;
-	_tmp58_ = self->mw_title;
-	gtk_container_add ((GtkContainer*) _tmp57_, (GtkWidget*) _tmp58_);
-	_tmp59_ = self->main_title;
-	gtk_tool_item_set_expand (_tmp59_, TRUE);
-	_tmp60_ = self->main_title;
-	gtk_widget_set_margin_right ((GtkWidget*) _tmp60_, 160);
-	_tmp61_ = gtk_icon_theme_get_default ();
-	_tmp62_ = (GThemedIcon*) g_themed_icon_new ("list-add-symbolic");
-	_tmp63_ = _tmp62_;
-	_tmp64_ = gtk_icon_theme_lookup_by_gicon (_tmp61_, (GIcon*) _tmp63_, 16, 0);
+	_tmp40_ = menu_t;
+	_tmp41_ = _tmp39_;
+	_tmp42_ = ecomics_tool_mode_button_Add_Button (_tmp40_, "", _tmp41_);
+	_tmp43_ = _tmp42_;
+	_g_object_unref0 (_tmp41_);
+	menu = _tmp43_;
+	_tmp44_ = gtk_icon_theme_get_default ();
+	_tmp45_ = (GThemedIcon*) g_themed_icon_new ("view-filter-symbolic");
+	_tmp46_ = _tmp45_;
+	_tmp47_ = gtk_icon_theme_lookup_by_gicon (_tmp44_, (GIcon*) _tmp46_, 16, 0);
+	_tmp48_ = _tmp47_;
+	_tmp49_.red = 0.33;
+	_tmp49_.green = 0.33;
+	_tmp49_.blue = 0.33;
+	_tmp49_.alpha = 0.33;
+	_tmp50_ = gtk_icon_info_load_symbolic (_tmp48_, &_tmp49_, NULL, NULL, NULL, NULL, &_inner_error_);
+	_tmp51_ = _tmp50_;
+	_gtk_icon_info_free0 (_tmp48_);
+	_g_object_unref0 (_tmp46_);
+	_tmp52_ = _tmp51_;
+	if (_inner_error_ != NULL) {
+		_g_object_unref0 (menu);
+		_g_object_unref0 (menu_t);
+		_g_object_unref0 (close_t);
+		_g_object_unref0 (close);
+		_g_object_unref0 (toolbar);
+		_g_free0 (etag_out);
+		contents = (g_free (contents), NULL);
+		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
+		g_clear_error (&_inner_error_);
+		return;
+	}
+	_tmp53_ = menu_t;
+	_tmp54_ = _tmp52_;
+	_tmp55_ = ecomics_tool_mode_button_Add_Button (_tmp53_, "", _tmp54_);
+	_tmp56_ = _tmp55_;
+	_g_object_unref0 (_tmp54_);
+	view1 = _tmp56_;
+	_tmp57_ = gtk_icon_theme_get_default ();
+	_tmp58_ = (GThemedIcon*) g_themed_icon_new ("view-coverflow-symbolic");
+	_tmp59_ = _tmp58_;
+	_tmp60_ = gtk_icon_theme_lookup_by_gicon (_tmp57_, (GIcon*) _tmp59_, 16, 0);
+	_tmp61_ = _tmp60_;
+	_tmp62_.red = 0.33;
+	_tmp62_.green = 0.33;
+	_tmp62_.blue = 0.33;
+	_tmp62_.alpha = 0.33;
+	_tmp63_ = gtk_icon_info_load_symbolic (_tmp61_, &_tmp62_, NULL, NULL, NULL, NULL, &_inner_error_);
+	_tmp64_ = _tmp63_;
+	_gtk_icon_info_free0 (_tmp61_);
+	_g_object_unref0 (_tmp59_);
 	_tmp65_ = _tmp64_;
-	_tmp66_.red = 0.33;
-	_tmp66_.green = 0.33;
-	_tmp66_.blue = 0.33;
-	_tmp66_.alpha = 0.33;
-	_tmp67_ = gtk_icon_info_load_symbolic (_tmp65_, &_tmp66_, NULL, NULL, NULL, NULL, &_inner_error_);
-	_tmp68_ = _tmp67_;
-	_gtk_icon_info_free0 (_tmp65_);
-	_g_object_unref0 (_tmp63_);
+	if (_inner_error_ != NULL) {
+		_g_object_unref0 (view1);
+		_g_object_unref0 (menu);
+		_g_object_unref0 (menu_t);
+		_g_object_unref0 (close_t);
+		_g_object_unref0 (close);
+		_g_object_unref0 (toolbar);
+		_g_free0 (etag_out);
+		contents = (g_free (contents), NULL);
+		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
+		g_clear_error (&_inner_error_);
+		return;
+	}
+	_tmp66_ = menu_t;
+	_tmp67_ = _tmp65_;
+	_tmp68_ = ecomics_tool_mode_button_Add_Button (_tmp66_, "", _tmp67_);
 	_tmp69_ = _tmp68_;
+	_g_object_unref0 (_tmp67_);
+	view2 = _tmp69_;
+	_tmp70_ = menu_t;
+	gtk_widget_show_all ((GtkWidget*) _tmp70_);
+	_tmp71_ = menu_t;
+	gtk_widget_set_margin_left ((GtkWidget*) _tmp71_, 10);
+	_tmp72_ = menu;
+	g_signal_connect_object (_tmp72_, "clicked", (GCallback) ___lambda6__gtk_button_clicked, self, 0);
+	_tmp73_ = ecomics_tool_mode_button_new ();
+	g_object_ref_sink (_tmp73_);
+	mode = _tmp73_;
+	_tmp74_ = mode;
+	gtk_widget_set_margin_left ((GtkWidget*) _tmp74_, 10);
+	_tmp75_ = gtk_icon_theme_get_default ();
+	_tmp76_ = (GThemedIcon*) g_themed_icon_new ("go-first-symbolic");
+	_tmp77_ = _tmp76_;
+	_tmp78_ = gtk_icon_theme_lookup_by_gicon (_tmp75_, (GIcon*) _tmp77_, 16, 0);
+	_tmp79_ = _tmp78_;
+	_tmp80_.red = 0.33;
+	_tmp80_.green = 0.33;
+	_tmp80_.blue = 0.33;
+	_tmp80_.alpha = 0.33;
+	_tmp81_ = gtk_icon_info_load_symbolic (_tmp79_, &_tmp80_, NULL, NULL, NULL, NULL, &_inner_error_);
+	_tmp82_ = _tmp81_;
+	_gtk_icon_info_free0 (_tmp79_);
+	_g_object_unref0 (_tmp77_);
+	_tmp83_ = _tmp82_;
 	if (_inner_error_ != NULL) {
 		_g_object_unref0 (mode);
-		_g_object_unref0 (menu_t);
+		_g_object_unref0 (view2);
+		_g_object_unref0 (view1);
 		_g_object_unref0 (menu);
-		_g_object_unref0 (icon);
+		_g_object_unref0 (menu_t);
 		_g_object_unref0 (close_t);
 		_g_object_unref0 (close);
 		_g_object_unref0 (toolbar);
@@ -466,48 +716,234 @@ static void ecomics_ecomics_mw_real_activate (GApplication* base) {
 		g_clear_error (&_inner_error_);
 		return;
 	}
-	_tmp70_ = _tmp69_;
-	_tmp71_ = (GtkImage*) gtk_image_new_from_pixbuf (_tmp70_);
-	g_object_ref_sink (_tmp71_);
-	_tmp72_ = _tmp71_;
-	_g_object_unref0 (_tmp70_);
-	add_icon = _tmp72_;
-	_tmp73_ = (GtkButton*) gtk_button_new ();
-	g_object_ref_sink (_tmp73_);
-	add = _tmp73_;
-	_tmp74_ = add;
-	_tmp75_ = add_icon;
-	gtk_button_set_image (_tmp74_, (GtkWidget*) _tmp75_);
-	_tmp76_ = gtk_tool_item_new ();
-	g_object_ref_sink (_tmp76_);
-	add_t = _tmp76_;
-	_tmp77_ = add_t;
-	_tmp78_ = add;
-	gtk_container_add ((GtkContainer*) _tmp77_, (GtkWidget*) _tmp78_);
-	_tmp79_ = add_t;
-	gtk_widget_set_margin_left ((GtkWidget*) _tmp79_, 10);
-	_tmp80_ = gtk_icon_theme_get_default ();
-	_tmp81_ = (GThemedIcon*) g_themed_icon_new ("document-export-symbolic");
-	_tmp82_ = _tmp81_;
-	_tmp83_ = gtk_icon_theme_lookup_by_gicon (_tmp80_, (GIcon*) _tmp82_, 16, 0);
-	_tmp84_ = _tmp83_;
-	_tmp85_.red = 0.33;
-	_tmp85_.green = 0.33;
-	_tmp85_.blue = 0.33;
-	_tmp85_.alpha = 0.33;
-	_tmp86_ = gtk_icon_info_load_symbolic (_tmp84_, &_tmp85_, NULL, NULL, NULL, NULL, &_inner_error_);
+	_tmp84_ = mode;
+	_tmp85_ = _tmp83_;
+	_tmp86_ = ecomics_tool_mode_button_Add_Button (_tmp84_, "", _tmp85_);
 	_tmp87_ = _tmp86_;
-	_gtk_icon_info_free0 (_tmp84_);
-	_g_object_unref0 (_tmp82_);
-	_tmp88_ = _tmp87_;
+	_g_object_unref0 (_tmp85_);
+	btn1 = _tmp87_;
+	_tmp88_ = gtk_icon_theme_get_default ();
+	_tmp89_ = (GThemedIcon*) g_themed_icon_new ("go-previous-symbolic");
+	_tmp90_ = _tmp89_;
+	_tmp91_ = gtk_icon_theme_lookup_by_gicon (_tmp88_, (GIcon*) _tmp90_, 16, 0);
+	_tmp92_ = _tmp91_;
+	_tmp93_.red = 0.33;
+	_tmp93_.green = 0.33;
+	_tmp93_.blue = 0.33;
+	_tmp93_.alpha = 0.33;
+	_tmp94_ = gtk_icon_info_load_symbolic (_tmp92_, &_tmp93_, NULL, NULL, NULL, NULL, &_inner_error_);
+	_tmp95_ = _tmp94_;
+	_gtk_icon_info_free0 (_tmp92_);
+	_g_object_unref0 (_tmp90_);
+	_tmp96_ = _tmp95_;
+	if (_inner_error_ != NULL) {
+		_g_object_unref0 (btn1);
+		_g_object_unref0 (mode);
+		_g_object_unref0 (view2);
+		_g_object_unref0 (view1);
+		_g_object_unref0 (menu);
+		_g_object_unref0 (menu_t);
+		_g_object_unref0 (close_t);
+		_g_object_unref0 (close);
+		_g_object_unref0 (toolbar);
+		_g_free0 (etag_out);
+		contents = (g_free (contents), NULL);
+		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
+		g_clear_error (&_inner_error_);
+		return;
+	}
+	_tmp97_ = mode;
+	_tmp98_ = _tmp96_;
+	_tmp99_ = ecomics_tool_mode_button_Add_Button (_tmp97_, "", _tmp98_);
+	_tmp100_ = _tmp99_;
+	_g_object_unref0 (_tmp98_);
+	btn2 = _tmp100_;
+	_tmp101_ = gtk_icon_theme_get_default ();
+	_tmp102_ = (GThemedIcon*) g_themed_icon_new ("go-next-symbolic");
+	_tmp103_ = _tmp102_;
+	_tmp104_ = gtk_icon_theme_lookup_by_gicon (_tmp101_, (GIcon*) _tmp103_, 16, 0);
+	_tmp105_ = _tmp104_;
+	_tmp106_.red = 0.33;
+	_tmp106_.green = 0.33;
+	_tmp106_.blue = 0.33;
+	_tmp106_.alpha = 0.33;
+	_tmp107_ = gtk_icon_info_load_symbolic (_tmp105_, &_tmp106_, NULL, NULL, NULL, NULL, &_inner_error_);
+	_tmp108_ = _tmp107_;
+	_gtk_icon_info_free0 (_tmp105_);
+	_g_object_unref0 (_tmp103_);
+	_tmp109_ = _tmp108_;
+	if (_inner_error_ != NULL) {
+		_g_object_unref0 (btn2);
+		_g_object_unref0 (btn1);
+		_g_object_unref0 (mode);
+		_g_object_unref0 (view2);
+		_g_object_unref0 (view1);
+		_g_object_unref0 (menu);
+		_g_object_unref0 (menu_t);
+		_g_object_unref0 (close_t);
+		_g_object_unref0 (close);
+		_g_object_unref0 (toolbar);
+		_g_free0 (etag_out);
+		contents = (g_free (contents), NULL);
+		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
+		g_clear_error (&_inner_error_);
+		return;
+	}
+	_tmp110_ = mode;
+	_tmp111_ = _tmp109_;
+	_tmp112_ = ecomics_tool_mode_button_Add_Button (_tmp110_, "", _tmp111_);
+	_tmp113_ = _tmp112_;
+	_g_object_unref0 (_tmp111_);
+	btn3 = _tmp113_;
+	_tmp114_ = gtk_icon_theme_get_default ();
+	_tmp115_ = (GThemedIcon*) g_themed_icon_new ("go-last-symbolic");
+	_tmp116_ = _tmp115_;
+	_tmp117_ = gtk_icon_theme_lookup_by_gicon (_tmp114_, (GIcon*) _tmp116_, 16, 0);
+	_tmp118_ = _tmp117_;
+	_tmp119_.red = 0.33;
+	_tmp119_.green = 0.33;
+	_tmp119_.blue = 0.33;
+	_tmp119_.alpha = 0.33;
+	_tmp120_ = gtk_icon_info_load_symbolic (_tmp118_, &_tmp119_, NULL, NULL, NULL, NULL, &_inner_error_);
+	_tmp121_ = _tmp120_;
+	_gtk_icon_info_free0 (_tmp118_);
+	_g_object_unref0 (_tmp116_);
+	_tmp122_ = _tmp121_;
+	if (_inner_error_ != NULL) {
+		_g_object_unref0 (btn3);
+		_g_object_unref0 (btn2);
+		_g_object_unref0 (btn1);
+		_g_object_unref0 (mode);
+		_g_object_unref0 (view2);
+		_g_object_unref0 (view1);
+		_g_object_unref0 (menu);
+		_g_object_unref0 (menu_t);
+		_g_object_unref0 (close_t);
+		_g_object_unref0 (close);
+		_g_object_unref0 (toolbar);
+		_g_free0 (etag_out);
+		contents = (g_free (contents), NULL);
+		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
+		g_clear_error (&_inner_error_);
+		return;
+	}
+	_tmp123_ = mode;
+	_tmp124_ = _tmp122_;
+	_tmp125_ = ecomics_tool_mode_button_Add_Button (_tmp123_, "", _tmp124_);
+	_tmp126_ = _tmp125_;
+	_g_object_unref0 (_tmp124_);
+	btn4 = _tmp126_;
+	_tmp127_ = mode;
+	gtk_widget_show_all ((GtkWidget*) _tmp127_);
+	_tmp128_ = btn1;
+	g_signal_connect_object (_tmp128_, "clicked", (GCallback) ___lambda9__gtk_button_clicked, self, 0);
+	_tmp129_ = btn2;
+	g_signal_connect_object (_tmp129_, "clicked", (GCallback) ___lambda10__gtk_button_clicked, self, 0);
+	_tmp130_ = btn3;
+	g_signal_connect_object (_tmp130_, "clicked", (GCallback) ___lambda11__gtk_button_clicked, self, 0);
+	_tmp131_ = btn4;
+	g_signal_connect_object (_tmp131_, "clicked", (GCallback) ___lambda12__gtk_button_clicked, self, 0);
+	_tmp132_ = ((GraniteApplication*) self)->program_name;
+	_tmp133_ = (GtkLabel*) gtk_label_new (_tmp132_);
+	g_object_ref_sink (_tmp133_);
+	_g_object_unref0 (self->mw_title);
+	self->mw_title = _tmp133_;
+	_tmp134_ = self->mw_title;
+	_tmp135_ = pango_font_description_from_string ("bold");
+	_tmp136_ = _tmp135_;
+	gtk_widget_override_font ((GtkWidget*) _tmp134_, _tmp136_);
+	__vala_PangoFontDescription_free0 (_tmp136_);
+	_tmp137_ = gtk_tool_item_new ();
+	g_object_ref_sink (_tmp137_);
+	_g_object_unref0 (self->main_title);
+	self->main_title = _tmp137_;
+	_tmp138_ = self->main_title;
+	_tmp139_ = self->mw_title;
+	gtk_container_add ((GtkContainer*) _tmp138_, (GtkWidget*) _tmp139_);
+	_tmp140_ = self->main_title;
+	gtk_tool_item_set_expand (_tmp140_, TRUE);
+	_tmp141_ = self->main_title;
+	gtk_widget_set_margin_right ((GtkWidget*) _tmp141_, 160);
+	_tmp142_ = gtk_icon_theme_get_default ();
+	_tmp143_ = (GThemedIcon*) g_themed_icon_new ("list-add-symbolic");
+	_tmp144_ = _tmp143_;
+	_tmp145_ = gtk_icon_theme_lookup_by_gicon (_tmp142_, (GIcon*) _tmp144_, 16, 0);
+	_tmp146_ = _tmp145_;
+	_tmp147_.red = 0.33;
+	_tmp147_.green = 0.33;
+	_tmp147_.blue = 0.33;
+	_tmp147_.alpha = 0.33;
+	_tmp148_ = gtk_icon_info_load_symbolic (_tmp146_, &_tmp147_, NULL, NULL, NULL, NULL, &_inner_error_);
+	_tmp149_ = _tmp148_;
+	_gtk_icon_info_free0 (_tmp146_);
+	_g_object_unref0 (_tmp144_);
+	_tmp150_ = _tmp149_;
+	if (_inner_error_ != NULL) {
+		_g_object_unref0 (btn4);
+		_g_object_unref0 (btn3);
+		_g_object_unref0 (btn2);
+		_g_object_unref0 (btn1);
+		_g_object_unref0 (mode);
+		_g_object_unref0 (view2);
+		_g_object_unref0 (view1);
+		_g_object_unref0 (menu);
+		_g_object_unref0 (menu_t);
+		_g_object_unref0 (close_t);
+		_g_object_unref0 (close);
+		_g_object_unref0 (toolbar);
+		_g_free0 (etag_out);
+		contents = (g_free (contents), NULL);
+		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
+		g_clear_error (&_inner_error_);
+		return;
+	}
+	_tmp151_ = _tmp150_;
+	_tmp152_ = (GtkImage*) gtk_image_new_from_pixbuf (_tmp151_);
+	g_object_ref_sink (_tmp152_);
+	_tmp153_ = _tmp152_;
+	_g_object_unref0 (_tmp151_);
+	add_icon = _tmp153_;
+	_tmp154_ = (GtkButton*) gtk_button_new ();
+	g_object_ref_sink (_tmp154_);
+	add = _tmp154_;
+	_tmp155_ = add;
+	_tmp156_ = add_icon;
+	gtk_button_set_image (_tmp155_, (GtkWidget*) _tmp156_);
+	_tmp157_ = gtk_tool_item_new ();
+	g_object_ref_sink (_tmp157_);
+	add_t = _tmp157_;
+	_tmp158_ = add_t;
+	_tmp159_ = add;
+	gtk_container_add ((GtkContainer*) _tmp158_, (GtkWidget*) _tmp159_);
+	_tmp160_ = add_t;
+	gtk_widget_set_margin_left ((GtkWidget*) _tmp160_, 10);
+	_tmp161_ = gtk_icon_theme_get_default ();
+	_tmp162_ = (GThemedIcon*) g_themed_icon_new ("document-export-symbolic");
+	_tmp163_ = _tmp162_;
+	_tmp164_ = gtk_icon_theme_lookup_by_gicon (_tmp161_, (GIcon*) _tmp163_, 16, 0);
+	_tmp165_ = _tmp164_;
+	_tmp166_.red = 0.33;
+	_tmp166_.green = 0.33;
+	_tmp166_.blue = 0.33;
+	_tmp166_.alpha = 0.33;
+	_tmp167_ = gtk_icon_info_load_symbolic (_tmp165_, &_tmp166_, NULL, NULL, NULL, NULL, &_inner_error_);
+	_tmp168_ = _tmp167_;
+	_gtk_icon_info_free0 (_tmp165_);
+	_g_object_unref0 (_tmp163_);
+	_tmp169_ = _tmp168_;
 	if (_inner_error_ != NULL) {
 		_g_object_unref0 (add_t);
 		_g_object_unref0 (add);
 		_g_object_unref0 (add_icon);
+		_g_object_unref0 (btn4);
+		_g_object_unref0 (btn3);
+		_g_object_unref0 (btn2);
+		_g_object_unref0 (btn1);
 		_g_object_unref0 (mode);
-		_g_object_unref0 (menu_t);
+		_g_object_unref0 (view2);
+		_g_object_unref0 (view1);
 		_g_object_unref0 (menu);
-		_g_object_unref0 (icon);
+		_g_object_unref0 (menu_t);
 		_g_object_unref0 (close_t);
 		_g_object_unref0 (close);
 		_g_object_unref0 (toolbar);
@@ -517,76 +953,205 @@ static void ecomics_ecomics_mw_real_activate (GApplication* base) {
 		g_clear_error (&_inner_error_);
 		return;
 	}
-	_tmp89_ = _tmp88_;
-	_tmp90_ = (GtkImage*) gtk_image_new_from_pixbuf (_tmp89_);
-	g_object_ref_sink (_tmp90_);
-	_tmp91_ = _tmp90_;
-	_g_object_unref0 (_tmp89_);
-	share_icon = _tmp91_;
-	_tmp92_ = (GtkButton*) gtk_button_new ();
-	g_object_ref_sink (_tmp92_);
-	share = _tmp92_;
-	_tmp93_ = share;
-	_tmp94_ = share_icon;
-	gtk_button_set_image (_tmp93_, (GtkWidget*) _tmp94_);
-	_tmp95_ = gtk_tool_item_new ();
-	g_object_ref_sink (_tmp95_);
-	share_t = _tmp95_;
-	_tmp96_ = share_t;
-	_tmp97_ = share;
-	gtk_container_add ((GtkContainer*) _tmp96_, (GtkWidget*) _tmp97_);
-	_tmp98_ = share_t;
-	gtk_widget_set_margin_left ((GtkWidget*) _tmp98_, 10);
-	_tmp99_ = toolbar;
-	_tmp100_ = close_t;
-	gtk_container_add ((GtkContainer*) _tmp99_, (GtkWidget*) _tmp100_);
-	_tmp101_ = toolbar;
-	_tmp102_ = menu_t;
-	gtk_container_add ((GtkContainer*) _tmp101_, (GtkWidget*) _tmp102_);
-	_tmp103_ = toolbar;
-	_tmp104_ = mode;
-	gtk_container_add ((GtkContainer*) _tmp103_, (GtkWidget*) _tmp104_);
-	_tmp105_ = toolbar;
-	_tmp106_ = self->main_title;
-	gtk_container_add ((GtkContainer*) _tmp105_, (GtkWidget*) _tmp106_);
-	_tmp107_ = toolbar;
-	_tmp108_ = add_t;
-	gtk_container_add ((GtkContainer*) _tmp107_, (GtkWidget*) _tmp108_);
-	_tmp109_ = toolbar;
-	_tmp110_ = share_t;
-	gtk_container_add ((GtkContainer*) _tmp109_, (GtkWidget*) _tmp110_);
-	_tmp111_ = self->main_content;
-	_tmp112_ = toolbar;
-	gtk_box_pack_start (_tmp111_, (GtkWidget*) _tmp112_, FALSE, FALSE, (guint) 0);
-	_tmp113_ = (GtkBox*) gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-	g_object_ref_sink (_tmp113_);
+	_tmp170_ = _tmp169_;
+	_tmp171_ = (GtkImage*) gtk_image_new_from_pixbuf (_tmp170_);
+	g_object_ref_sink (_tmp171_);
+	_tmp172_ = _tmp171_;
+	_g_object_unref0 (_tmp170_);
+	share_icon = _tmp172_;
+	_tmp173_ = (GtkButton*) gtk_button_new ();
+	g_object_ref_sink (_tmp173_);
+	share = _tmp173_;
+	_tmp174_ = share;
+	_tmp175_ = share_icon;
+	gtk_button_set_image (_tmp174_, (GtkWidget*) _tmp175_);
+	_tmp176_ = gtk_tool_item_new ();
+	g_object_ref_sink (_tmp176_);
+	share_t = _tmp176_;
+	_tmp177_ = share_t;
+	_tmp178_ = share;
+	gtk_container_add ((GtkContainer*) _tmp177_, (GtkWidget*) _tmp178_);
+	_tmp179_ = share_t;
+	gtk_widget_set_margin_left ((GtkWidget*) _tmp179_, 10);
+	_tmp180_ = ecomics_tool_mode_button_new ();
+	g_object_ref_sink (_tmp180_);
+	sadd = _tmp180_;
+	_tmp181_ = gtk_icon_theme_get_default ();
+	_tmp182_ = (GThemedIcon*) g_themed_icon_new ("list-add-symbolic");
+	_tmp183_ = _tmp182_;
+	_tmp184_ = gtk_icon_theme_lookup_by_gicon (_tmp181_, (GIcon*) _tmp183_, 16, 0);
+	_tmp185_ = _tmp184_;
+	_tmp186_.red = 0.33;
+	_tmp186_.green = 0.33;
+	_tmp186_.blue = 0.33;
+	_tmp186_.alpha = 0.33;
+	_tmp187_ = gtk_icon_info_load_symbolic (_tmp185_, &_tmp186_, NULL, NULL, NULL, NULL, &_inner_error_);
+	_tmp188_ = _tmp187_;
+	_gtk_icon_info_free0 (_tmp185_);
+	_g_object_unref0 (_tmp183_);
+	_tmp189_ = _tmp188_;
+	if (_inner_error_ != NULL) {
+		_g_object_unref0 (sadd);
+		_g_object_unref0 (share_t);
+		_g_object_unref0 (share);
+		_g_object_unref0 (share_icon);
+		_g_object_unref0 (add_t);
+		_g_object_unref0 (add);
+		_g_object_unref0 (add_icon);
+		_g_object_unref0 (btn4);
+		_g_object_unref0 (btn3);
+		_g_object_unref0 (btn2);
+		_g_object_unref0 (btn1);
+		_g_object_unref0 (mode);
+		_g_object_unref0 (view2);
+		_g_object_unref0 (view1);
+		_g_object_unref0 (menu);
+		_g_object_unref0 (menu_t);
+		_g_object_unref0 (close_t);
+		_g_object_unref0 (close);
+		_g_object_unref0 (toolbar);
+		_g_free0 (etag_out);
+		contents = (g_free (contents), NULL);
+		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
+		g_clear_error (&_inner_error_);
+		return;
+	}
+	_tmp190_ = sadd;
+	_tmp191_ = _tmp189_;
+	_tmp192_ = ecomics_tool_mode_button_Add_Button (_tmp190_, "", _tmp191_);
+	_tmp193_ = _tmp192_;
+	_g_object_unref0 (_tmp191_);
+	addbtn = _tmp193_;
+	_tmp194_ = gtk_icon_theme_get_default ();
+	_tmp195_ = (GThemedIcon*) g_themed_icon_new ("document-export-symbolic");
+	_tmp196_ = _tmp195_;
+	_tmp197_ = gtk_icon_theme_lookup_by_gicon (_tmp194_, (GIcon*) _tmp196_, 16, 0);
+	_tmp198_ = _tmp197_;
+	_tmp199_.red = 0.33;
+	_tmp199_.green = 0.33;
+	_tmp199_.blue = 0.33;
+	_tmp199_.alpha = 0.33;
+	_tmp200_ = gtk_icon_info_load_symbolic (_tmp198_, &_tmp199_, NULL, NULL, NULL, NULL, &_inner_error_);
+	_tmp201_ = _tmp200_;
+	_gtk_icon_info_free0 (_tmp198_);
+	_g_object_unref0 (_tmp196_);
+	_tmp202_ = _tmp201_;
+	if (_inner_error_ != NULL) {
+		_g_object_unref0 (addbtn);
+		_g_object_unref0 (sadd);
+		_g_object_unref0 (share_t);
+		_g_object_unref0 (share);
+		_g_object_unref0 (share_icon);
+		_g_object_unref0 (add_t);
+		_g_object_unref0 (add);
+		_g_object_unref0 (add_icon);
+		_g_object_unref0 (btn4);
+		_g_object_unref0 (btn3);
+		_g_object_unref0 (btn2);
+		_g_object_unref0 (btn1);
+		_g_object_unref0 (mode);
+		_g_object_unref0 (view2);
+		_g_object_unref0 (view1);
+		_g_object_unref0 (menu);
+		_g_object_unref0 (menu_t);
+		_g_object_unref0 (close_t);
+		_g_object_unref0 (close);
+		_g_object_unref0 (toolbar);
+		_g_free0 (etag_out);
+		contents = (g_free (contents), NULL);
+		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
+		g_clear_error (&_inner_error_);
+		return;
+	}
+	_tmp203_ = sadd;
+	_tmp204_ = _tmp202_;
+	_tmp205_ = ecomics_tool_mode_button_Add_Button (_tmp203_, "", _tmp204_);
+	_tmp206_ = _tmp205_;
+	_g_object_unref0 (_tmp204_);
+	sharebtn = _tmp206_;
+	_tmp207_ = sadd;
+	gtk_widget_show_all ((GtkWidget*) _tmp207_);
+	_tmp208_ = (GtkButton*) gtk_button_new ();
+	g_object_ref_sink (_tmp208_);
+	maximize = _tmp208_;
+	_tmp209_ = maximize;
+	_tmp210_ = (GtkImage*) gtk_image_new_from_file ("/usr/share/themes/elementary/metacity-1/maximize.svg");
+	g_object_ref_sink (_tmp210_);
+	_tmp211_ = _tmp210_;
+	gtk_button_set_image (_tmp209_, (GtkWidget*) _tmp211_);
+	_g_object_unref0 (_tmp211_);
+	_tmp212_ = gtk_tool_item_new ();
+	g_object_ref_sink (_tmp212_);
+	maximize_t = _tmp212_;
+	_tmp213_ = maximize_t;
+	_tmp214_ = maximize;
+	gtk_container_add ((GtkContainer*) _tmp213_, (GtkWidget*) _tmp214_);
+	_tmp215_ = maximize;
+	g_signal_connect_object (_tmp215_, "clicked", (GCallback) ___lambda13__gtk_button_clicked, self, 0);
+	_tmp216_ = maximize_t;
+	gtk_widget_set_margin_left ((GtkWidget*) _tmp216_, 10);
+	_tmp217_ = toolbar;
+	_tmp218_ = close_t;
+	gtk_container_add ((GtkContainer*) _tmp217_, (GtkWidget*) _tmp218_);
+	_tmp219_ = toolbar;
+	_tmp220_ = menu_t;
+	gtk_container_add ((GtkContainer*) _tmp219_, (GtkWidget*) _tmp220_);
+	_tmp221_ = toolbar;
+	_tmp222_ = mode;
+	gtk_container_add ((GtkContainer*) _tmp221_, (GtkWidget*) _tmp222_);
+	_tmp223_ = toolbar;
+	_tmp224_ = self->main_title;
+	gtk_container_add ((GtkContainer*) _tmp223_, (GtkWidget*) _tmp224_);
+	_tmp225_ = toolbar;
+	_tmp226_ = sadd;
+	gtk_container_add ((GtkContainer*) _tmp225_, (GtkWidget*) _tmp226_);
+	_tmp227_ = toolbar;
+	_tmp228_ = maximize_t;
+	gtk_container_add ((GtkContainer*) _tmp227_, (GtkWidget*) _tmp228_);
+	_tmp229_ = self->main_content;
+	_tmp230_ = toolbar;
+	gtk_box_pack_start (_tmp229_, (GtkWidget*) _tmp230_, FALSE, FALSE, (guint) 0);
+	_tmp231_ = (GtkBox*) gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+	g_object_ref_sink (_tmp231_);
 	_g_object_unref0 (self->content_box);
-	self->content_box = _tmp113_;
-	_tmp114_ = self->content_box;
-	_tmp115_ = ecomics_comic_selection_new ();
-	g_object_ref_sink (_tmp115_);
-	_tmp116_ = _tmp115_;
-	gtk_box_pack_start (_tmp114_, (GtkWidget*) _tmp116_, TRUE, TRUE, (guint) 0);
-	_g_object_unref0 (_tmp116_);
-	_tmp117_ = self->main_content;
-	_tmp118_ = self->content_box;
-	gtk_box_pack_start (_tmp117_, (GtkWidget*) _tmp118_, TRUE, TRUE, (guint) 0);
-	_tmp119_ = self->m_window;
-	_tmp120_ = self->main_content;
-	granite_widgets_basic_dialog_add_content (_tmp119_, (GtkWidget*) _tmp120_);
-	_tmp121_ = self->m_window;
-	gtk_widget_show_all ((GtkWidget*) _tmp121_);
+	self->content_box = _tmp231_;
+	_tmp232_ = self->content_box;
+	_tmp233_ = ecomics_comic_selection_new ();
+	g_object_ref_sink (_tmp233_);
+	_tmp234_ = _tmp233_;
+	gtk_box_pack_start (_tmp232_, (GtkWidget*) _tmp234_, TRUE, TRUE, (guint) 0);
+	_g_object_unref0 (_tmp234_);
+	_tmp235_ = self->main_content;
+	_tmp236_ = self->content_box;
+	gtk_box_pack_start (_tmp235_, (GtkWidget*) _tmp236_, TRUE, TRUE, (guint) 0);
+	_tmp237_ = self->m_window;
+	_tmp238_ = self->main_content;
+	granite_widgets_basic_dialog_add_content (_tmp237_, (GtkWidget*) _tmp238_);
+	_tmp239_ = self->m_window;
+	gtk_widget_show_all ((GtkWidget*) _tmp239_);
+	_tmp240_ = self->m_window;
+	gtk_window_fullscreen ((GtkWindow*) _tmp240_);
 	ecomics_comic_manager_Set_MainWindow (self);
+	_g_object_unref0 (maximize_t);
+	_g_object_unref0 (maximize);
+	_g_object_unref0 (sharebtn);
+	_g_object_unref0 (addbtn);
+	_g_object_unref0 (sadd);
 	_g_object_unref0 (share_t);
 	_g_object_unref0 (share);
 	_g_object_unref0 (share_icon);
 	_g_object_unref0 (add_t);
 	_g_object_unref0 (add);
 	_g_object_unref0 (add_icon);
+	_g_object_unref0 (btn4);
+	_g_object_unref0 (btn3);
+	_g_object_unref0 (btn2);
+	_g_object_unref0 (btn1);
 	_g_object_unref0 (mode);
-	_g_object_unref0 (menu_t);
+	_g_object_unref0 (view2);
+	_g_object_unref0 (view1);
 	_g_object_unref0 (menu);
-	_g_object_unref0 (icon);
+	_g_object_unref0 (menu_t);
 	_g_object_unref0 (close_t);
 	_g_object_unref0 (close);
 	_g_object_unref0 (toolbar);
@@ -595,7 +1160,7 @@ static void ecomics_ecomics_mw_real_activate (GApplication* base) {
 }
 
 
-static void __lambda11_ (eComicseComics_MW* self, GtkWidget* entry) {
+static void __lambda7_ (eComicseComics_MW* self, GtkWidget* entry) {
 	GtkWidget* _tmp0_;
 	g_return_if_fail (entry != NULL);
 	_tmp0_ = entry;
@@ -603,8 +1168,8 @@ static void __lambda11_ (eComicseComics_MW* self, GtkWidget* entry) {
 }
 
 
-static void ___lambda11__gfunc (gconstpointer data, gpointer self) {
-	__lambda11_ (self, data);
+static void ___lambda7__gfunc (gconstpointer data, gpointer self) {
+	__lambda7_ (self, data);
 }
 
 
@@ -616,8 +1181,13 @@ void ecomics_ecomics_mw_empty_content (eComicseComics_MW* self) {
 	_tmp0_ = self->content_box;
 	_tmp1_ = gtk_container_get_children ((GtkContainer*) _tmp0_);
 	content_list = _tmp1_;
-	g_list_foreach (content_list, ___lambda11__gfunc, self);
+	g_list_foreach (content_list, ___lambda7__gfunc, self);
 	_g_list_free0 (content_list);
+}
+
+
+void ecomics_ecomics_mw_toggle_maximize (eComicseComics_MW* self) {
+	g_return_if_fail (self != NULL);
 }
 
 

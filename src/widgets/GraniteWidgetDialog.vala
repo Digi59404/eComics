@@ -2,18 +2,20 @@
 //
 //  Copyright (C) 2011 Adrien Plazas
 //
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
+// This library is free software; you can redistribute it and/or
+// modify it under the terms of the GNU Lesser General Public License as
+// published by the Free Software Foundation; either version 2 of the
+// License, or (at your option) any later version.
 //
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
+// This is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+// Lesser General Public License for more details.
 //
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// You should have received a copy of the GNU Lesser General Public
+// License along with this program; see the file COPYING.  If not,
+// write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+//  Boston, MA 02111-1307, USA.
 //
 //
 //  Authors:
@@ -22,10 +24,14 @@
 //      Daniel Foré <daniel@elementaryos.org>
 //
 
+/* MODIFIED BY CHRIS TIMBERLAKE FOR ECOMICS */
+
+
+
 using Gtk;
 using Gdk;
 
-public class Granite.Widgets.BasicDialog : Gtk.Dialog
+public class Granite.Widgets.BasicDialog : Gtk.Window
 {
 
     /**
@@ -81,14 +87,14 @@ public class Granite.Widgets.BasicDialog : Gtk.Dialog
         has_resize_grip = false;
         resizable = false;
         deletable = false; // Hide the window's close button when possible
-        set_default_response(ResponseType.CANCEL);
+        //set_default_response(ResponseType.CANCEL);
 
 
         Granite.Widgets.Utils.set_theming (this, STYLESHEET, null,
                                            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         // Set the default containers
-        main_box = (Box)get_content_area();
+        //main_box = (Box)get_content_area();
         //action_area = (Box)get_action_area();
 
         var draw_ref = new Gtk.Window ();
@@ -107,9 +113,10 @@ public class Granite.Widgets.BasicDialog : Gtk.Dialog
         //action_area.margin = 4;
         //action_area.margin_bottom = 8;
         
-        this.get_content_area ().margin = 18;
-        this.get_content_area ().margin_top = 20;
-        this.get_content_area ().margin_bottom = 3; 
+        main_box = new Gtk.Box(Gtk.Orientation.VERTICAL, 0 );
+        main_box.margin = 18;
+        main_box.margin_top = 20;
+        main_box.margin_bottom = 3; 
 
         this.content_box.width_request = this.width_request;
 
@@ -166,6 +173,7 @@ public class Granite.Widgets.BasicDialog : Gtk.Dialog
             }
             return false;
         });
+        add(main_box);
         show_all ();
     }
 

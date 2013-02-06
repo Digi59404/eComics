@@ -53,14 +53,14 @@ typedef struct _Block2Data Block2Data;
 #define _g_error_free0(var) ((var == NULL) ? NULL : (var = (g_error_free (var), NULL)))
 
 struct _GraniteWidgetsBasicDialog {
-	GtkDialog parent_instance;
+	GtkWindow parent_instance;
 	GraniteWidgetsBasicDialogPrivate * priv;
 	GtkBox* main_box;
 	GtkBox* content_box;
 };
 
 struct _GraniteWidgetsBasicDialogClass {
-	GtkDialogClass parent_class;
+	GtkWindowClass parent_class;
 	gboolean (*activate_link) (GraniteWidgetsBasicDialog* self, const gchar* uri);
 };
 
@@ -138,11 +138,6 @@ static void block2_data_unref (void * _userdata_) {
 		_g_object_unref0 (self);
 		g_slice_free (Block2Data, _data2_);
 	}
-}
-
-
-static gpointer _g_object_ref0 (gpointer self) {
-	return self ? g_object_ref (self) : NULL;
 }
 
 
@@ -343,20 +338,20 @@ GraniteWidgetsBasicDialog* granite_widgets_basic_dialog_construct (GType object_
 	Block2Data* _data2_;
 	GtkCssProvider* _tmp0_ = NULL;
 	GtkCssProvider* _tmp1_;
-	GtkBox* _tmp2_ = NULL;
-	GtkBox* _tmp3_;
-	GtkWindow* _tmp4_;
-	GtkStyleContext* _tmp5_ = NULL;
-	GtkBox* _tmp6_;
-	GdkScreen* _tmp7_ = NULL;
-	GdkVisual* _tmp8_ = NULL;
-	GtkBox* _tmp9_ = NULL;
-	GtkBox* _tmp10_ = NULL;
-	GtkBox* _tmp11_ = NULL;
-	GtkBox* _tmp12_;
-	gint _tmp13_ = 0;
-	gint _tmp14_;
-	GtkLabel* _tmp15_;
+	GtkWindow* _tmp2_;
+	GtkStyleContext* _tmp3_ = NULL;
+	GtkBox* _tmp4_;
+	GdkScreen* _tmp5_ = NULL;
+	GdkVisual* _tmp6_ = NULL;
+	GtkBox* _tmp7_;
+	GtkBox* _tmp8_;
+	GtkBox* _tmp9_;
+	GtkBox* _tmp10_;
+	GtkBox* _tmp11_;
+	gint _tmp12_ = 0;
+	gint _tmp13_;
+	GtkLabel* _tmp14_;
+	GtkBox* _tmp15_;
 	GtkBox* _tmp16_;
 	GtkBox* _tmp17_;
 	_data2_ = g_slice_new0 (Block2Data);
@@ -367,44 +362,43 @@ GraniteWidgetsBasicDialog* granite_widgets_basic_dialog_construct (GType object_
 	gtk_window_set_has_resize_grip ((GtkWindow*) self, FALSE);
 	gtk_window_set_resizable ((GtkWindow*) self, FALSE);
 	gtk_window_set_deletable ((GtkWindow*) self, FALSE);
-	gtk_dialog_set_default_response ((GtkDialog*) self, (gint) GTK_RESPONSE_CANCEL);
 	_tmp0_ = granite_widgets_utils_set_theming ((GtkWidget*) self, GRANITE_WIDGETS_BASIC_DIALOG_STYLESHEET, NULL, GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 	_tmp1_ = _tmp0_;
 	_g_object_unref0 (_tmp1_);
-	_tmp2_ = gtk_dialog_get_content_area ((GtkDialog*) self);
-	_tmp3_ = _g_object_ref0 (G_TYPE_CHECK_INSTANCE_CAST (_tmp2_, GTK_TYPE_BOX, GtkBox));
-	_g_object_unref0 (self->main_box);
-	self->main_box = _tmp3_;
-	_tmp4_ = (GtkWindow*) gtk_window_new (GTK_WINDOW_TOPLEVEL);
+	_tmp2_ = (GtkWindow*) gtk_window_new (GTK_WINDOW_TOPLEVEL);
+	g_object_ref_sink (_tmp2_);
+	_data2_->draw_ref = _tmp2_;
+	_tmp3_ = gtk_widget_get_style_context ((GtkWidget*) _data2_->draw_ref);
+	gtk_style_context_add_class (_tmp3_, GRANITE_STYLE_CLASS_CONTENT_VIEW_WINDOW);
+	_tmp4_ = (GtkBox*) gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 	g_object_ref_sink (_tmp4_);
-	_data2_->draw_ref = _tmp4_;
-	_tmp5_ = gtk_widget_get_style_context ((GtkWidget*) _data2_->draw_ref);
-	gtk_style_context_add_class (_tmp5_, GRANITE_STYLE_CLASS_CONTENT_VIEW_WINDOW);
-	_tmp6_ = (GtkBox*) gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-	g_object_ref_sink (_tmp6_);
 	_g_object_unref0 (self->content_box);
-	self->content_box = _tmp6_;
+	self->content_box = _tmp4_;
 	granite_widgets_decorated_window_set_default_theming (_data2_->draw_ref);
 	gtk_window_set_decorated ((GtkWindow*) self, FALSE);
-	_tmp7_ = gtk_window_get_screen ((GtkWindow*) self);
-	_tmp8_ = gdk_screen_get_rgba_visual (_tmp7_);
-	gtk_widget_set_visual ((GtkWidget*) self, _tmp8_);
+	_tmp5_ = gtk_window_get_screen ((GtkWindow*) self);
+	_tmp6_ = gdk_screen_get_rgba_visual (_tmp5_);
+	gtk_widget_set_visual ((GtkWidget*) self, _tmp6_);
 	gtk_widget_set_app_paintable ((GtkWidget*) self, TRUE);
-	_tmp9_ = gtk_dialog_get_content_area ((GtkDialog*) self);
-	g_object_set ((GtkWidget*) _tmp9_, "margin", 18, NULL);
-	_tmp10_ = gtk_dialog_get_content_area ((GtkDialog*) self);
-	gtk_widget_set_margin_top ((GtkWidget*) _tmp10_, 20);
-	_tmp11_ = gtk_dialog_get_content_area ((GtkDialog*) self);
-	gtk_widget_set_margin_bottom ((GtkWidget*) _tmp11_, 3);
-	_tmp12_ = self->content_box;
-	g_object_get ((GtkWidget*) self, "width-request", &_tmp13_, NULL);
-	_tmp14_ = _tmp13_;
-	g_object_set ((GtkWidget*) _tmp12_, "width-request", _tmp14_, NULL);
-	_tmp15_ = self->priv->name_label;
-	granite_widgets_utils_apply_text_style_to_label (GRANITE_TEXT_STYLE_H2, _tmp15_);
-	_tmp16_ = self->main_box;
-	_tmp17_ = self->content_box;
-	gtk_box_pack_start (_tmp16_, (GtkWidget*) _tmp17_, TRUE, TRUE, (guint) 0);
+	_tmp7_ = (GtkBox*) gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+	g_object_ref_sink (_tmp7_);
+	_g_object_unref0 (self->main_box);
+	self->main_box = _tmp7_;
+	_tmp8_ = self->main_box;
+	g_object_set ((GtkWidget*) _tmp8_, "margin", 18, NULL);
+	_tmp9_ = self->main_box;
+	gtk_widget_set_margin_top ((GtkWidget*) _tmp9_, 20);
+	_tmp10_ = self->main_box;
+	gtk_widget_set_margin_bottom ((GtkWidget*) _tmp10_, 3);
+	_tmp11_ = self->content_box;
+	g_object_get ((GtkWidget*) self, "width-request", &_tmp12_, NULL);
+	_tmp13_ = _tmp12_;
+	g_object_set ((GtkWidget*) _tmp11_, "width-request", _tmp13_, NULL);
+	_tmp14_ = self->priv->name_label;
+	granite_widgets_utils_apply_text_style_to_label (GRANITE_TEXT_STYLE_H2, _tmp14_);
+	_tmp15_ = self->main_box;
+	_tmp16_ = self->content_box;
+	gtk_box_pack_start (_tmp15_, (GtkWidget*) _tmp16_, TRUE, TRUE, (guint) 0);
 	g_object_set ((GtkWidget*) self, "height-request", 282, NULL);
 	g_object_set ((GtkWidget*) self, "width-request", 400, NULL);
 	_data2_->w = -1;
@@ -412,6 +406,8 @@ GraniteWidgetsBasicDialog* granite_widgets_basic_dialog_construct (GType object_
 	g_signal_connect_data ((GtkWidget*) self, "size-allocate", (GCallback) ___lambda2__gtk_widget_size_allocate, block2_data_ref (_data2_), (GClosureNotify) block2_data_unref, 0);
 	g_signal_connect_data ((GtkWidget*) self, "draw", (GCallback) ___lambda3__gtk_widget_draw, block2_data_ref (_data2_), (GClosureNotify) block2_data_unref, 0);
 	g_signal_connect_object ((GtkWidget*) self, "button-press-event", (GCallback) ___lambda4__gtk_widget_button_press_event, self, 0);
+	_tmp17_ = self->main_box;
+	gtk_container_add ((GtkContainer*) self, (GtkWidget*) _tmp17_);
 	gtk_widget_show_all ((GtkWidget*) self);
 	block2_data_unref (_data2_);
 	_data2_ = NULL;
@@ -588,7 +584,7 @@ GType granite_widgets_basic_dialog_get_type (void) {
 	if (g_once_init_enter (&granite_widgets_basic_dialog_type_id__volatile)) {
 		static const GTypeInfo g_define_type_info = { sizeof (GraniteWidgetsBasicDialogClass), (GBaseInitFunc) NULL, (GBaseFinalizeFunc) NULL, (GClassInitFunc) granite_widgets_basic_dialog_class_init, (GClassFinalizeFunc) NULL, NULL, sizeof (GraniteWidgetsBasicDialog), 0, (GInstanceInitFunc) granite_widgets_basic_dialog_instance_init, NULL };
 		GType granite_widgets_basic_dialog_type_id;
-		granite_widgets_basic_dialog_type_id = g_type_register_static (GTK_TYPE_DIALOG, "GraniteWidgetsBasicDialog", &g_define_type_info, 0);
+		granite_widgets_basic_dialog_type_id = g_type_register_static (GTK_TYPE_WINDOW, "GraniteWidgetsBasicDialog", &g_define_type_info, 0);
 		g_once_init_leave (&granite_widgets_basic_dialog_type_id__volatile, granite_widgets_basic_dialog_type_id);
 	}
 	return granite_widgets_basic_dialog_type_id__volatile;

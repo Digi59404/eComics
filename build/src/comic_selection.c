@@ -27,6 +27,7 @@ typedef struct _eComicsComic_SelectionClass eComicsComic_SelectionClass;
 typedef struct _eComicsComic_SelectionPrivate eComicsComic_SelectionPrivate;
 typedef struct _Block1Data Block1Data;
 #define _g_object_unref0(var) ((var == NULL) ? NULL : (var = (g_object_unref (var), NULL)))
+#define _g_free0(var) (var = (g_free (var), NULL))
 #define _gtk_tree_path_free0(var) ((var == NULL) ? NULL : (var = (gtk_tree_path_free (var), NULL)))
 #define __g_list_free__gtk_tree_path_free0_0(var) ((var == NULL) ? NULL : (var = (_g_list_free__gtk_tree_path_free0_ (var), NULL)))
 #define _vala_assert(expr, msg) if G_LIKELY (expr) ; else g_assertion_message_expr (G_LOG_DOMAIN, __FILE__, __LINE__, G_STRFUNC, msg);
@@ -60,11 +61,11 @@ eComicsComic_Selection* ecomics_comic_selection_new (void);
 eComicsComic_Selection* ecomics_comic_selection_construct (GType object_type);
 static Block1Data* block1_data_ref (Block1Data* _data1_);
 static void block1_data_unref (void * _userdata_);
-static void __lambda10_ (Block1Data* _data1_);
+static void __lambda8_ (Block1Data* _data1_);
 void ecomics_comic_manager_Open_Comic (const gchar* title);
 static void _gtk_tree_path_free0_ (gpointer var);
 static void _g_list_free__gtk_tree_path_free0_ (GList* self);
-static void ___lambda10__gtk_icon_view_selection_changed (GtkIconView* _sender, gpointer self);
+static void ___lambda8__gtk_icon_view_selection_changed (GtkIconView* _sender, gpointer self);
 
 
 static Block1Data* block1_data_ref (Block1Data* _data1_) {
@@ -102,59 +103,61 @@ static void _g_list_free__gtk_tree_path_free0_ (GList* self) {
 }
 
 
-static void __lambda10_ (Block1Data* _data1_) {
+static void __lambda8_ (Block1Data* _data1_) {
 	eComicsComic_Selection * self;
-	GList* _tmp0_ = NULL;
+	GtkIconView* _tmp0_;
+	GList* _tmp1_ = NULL;
 	GList* paths;
 	GValue title = {0};
 	GValue icon = {0};
-	GList* _tmp1_;
+	GList* _tmp2_;
 	self = _data1_->self;
-	_tmp0_ = gtk_icon_view_get_selected_items (_data1_->view);
-	paths = _tmp0_;
-	_tmp1_ = paths;
+	_tmp0_ = _data1_->view;
+	_tmp1_ = gtk_icon_view_get_selected_items (_tmp0_);
+	paths = _tmp1_;
+	_tmp2_ = paths;
 	{
 		GList* path_collection = NULL;
 		GList* path_it = NULL;
-		path_collection = _tmp1_;
+		path_collection = _tmp2_;
 		for (path_it = path_collection; path_it != NULL; path_it = path_it->next) {
-			GtkTreePath* _tmp2_;
+			GtkTreePath* _tmp3_;
 			GtkTreePath* path = NULL;
-			_tmp2_ = _gtk_tree_path_copy0 ((GtkTreePath*) path_it->data);
-			path = _tmp2_;
+			_tmp3_ = _gtk_tree_path_copy0 ((GtkTreePath*) path_it->data);
+			path = _tmp3_;
 			{
-				GtkListStore* _tmp3_;
-				GtkTreePath* _tmp4_;
-				GtkTreeIter _tmp5_ = {0};
-				gboolean _tmp6_ = FALSE;
+				GtkListStore* _tmp4_;
+				GtkTreePath* _tmp5_;
+				GtkTreeIter _tmp6_ = {0};
+				gboolean _tmp7_ = FALSE;
 				gboolean tmp;
-				gboolean _tmp7_;
-				GtkListStore* _tmp8_;
-				GtkTreeIter _tmp9_;
-				GValue _tmp10_ = {0};
-				GtkListStore* _tmp11_;
-				GtkTreeIter _tmp12_;
-				GValue _tmp13_ = {0};
-				GValue _tmp14_;
-				_tmp3_ = ecomics_model;
-				_tmp4_ = path;
-				_tmp6_ = gtk_tree_model_get_iter ((GtkTreeModel*) _tmp3_, &_tmp5_, _tmp4_);
-				_data1_->iter = _tmp5_;
-				tmp = _tmp6_;
-				_tmp7_ = tmp;
-				_vala_assert (_tmp7_ == TRUE, "tmp == true");
-				_tmp8_ = ecomics_model;
-				_tmp9_ = _data1_->iter;
-				gtk_tree_model_get_value ((GtkTreeModel*) _tmp8_, &_tmp9_, 0, &_tmp10_);
+				gboolean _tmp8_;
+				GtkListStore* _tmp9_;
+				GtkTreeIter _tmp10_;
+				GValue _tmp11_ = {0};
+				GtkListStore* _tmp12_;
+				GtkTreeIter _tmp13_;
+				GValue _tmp14_ = {0};
+				GValue _tmp15_;
+				_tmp4_ = ecomics_model;
+				_tmp5_ = path;
+				_tmp7_ = gtk_tree_model_get_iter ((GtkTreeModel*) _tmp4_, &_tmp6_, _tmp5_);
+				_data1_->iter = _tmp6_;
+				tmp = _tmp7_;
+				_tmp8_ = tmp;
+				_vala_assert (_tmp8_ == TRUE, "tmp == true");
+				_tmp9_ = ecomics_model;
+				_tmp10_ = _data1_->iter;
+				gtk_tree_model_get_value ((GtkTreeModel*) _tmp9_, &_tmp10_, 0, &_tmp11_);
 				G_IS_VALUE (&icon) ? (g_value_unset (&icon), NULL) : NULL;
-				icon = _tmp10_;
-				_tmp11_ = ecomics_model;
-				_tmp12_ = _data1_->iter;
-				gtk_tree_model_get_value ((GtkTreeModel*) _tmp11_, &_tmp12_, 1, &_tmp13_);
+				icon = _tmp11_;
+				_tmp12_ = ecomics_model;
+				_tmp13_ = _data1_->iter;
+				gtk_tree_model_get_value ((GtkTreeModel*) _tmp12_, &_tmp13_, 1, &_tmp14_);
 				G_IS_VALUE (&title) ? (g_value_unset (&title), NULL) : NULL;
-				title = _tmp13_;
-				_tmp14_ = title;
-				ecomics_comic_manager_Open_Comic (g_value_get_string (&_tmp14_));
+				title = _tmp14_;
+				_tmp15_ = title;
+				ecomics_comic_manager_Open_Comic (g_value_get_string (&_tmp15_));
 				_gtk_tree_path_free0 (path);
 			}
 		}
@@ -165,8 +168,8 @@ static void __lambda10_ (Block1Data* _data1_) {
 }
 
 
-static void ___lambda10__gtk_icon_view_selection_changed (GtkIconView* _sender, gpointer self) {
-	__lambda10_ (self);
+static void ___lambda8__gtk_icon_view_selection_changed (GtkIconView* _sender, gpointer self) {
+	__lambda8_ (self);
 }
 
 
@@ -178,25 +181,49 @@ eComicsComic_Selection* ecomics_comic_selection_construct (GType object_type) {
 	GtkListStore* _tmp1_;
 	GtkListStore* _tmp2_;
 	GtkIconView* _tmp3_;
-	GdkPixbuf* _tmp4_ = NULL;
+	GtkIconView* _tmp4_;
+	GtkIconView* _tmp5_;
+	GtkIconView* _tmp6_;
+	gchar* _tmp7_ = NULL;
+	gchar* _tmp8_;
+	gchar* _tmp9_;
+	gchar* _tmp10_;
+	GdkPixbuf* _tmp11_;
+	GdkPixbuf* _tmp12_;
 	GdkPixbuf* pixbuf;
-	GtkListStore* _tmp5_;
-	GtkTreeIter _tmp6_ = {0};
-	GtkListStore* _tmp7_;
-	GtkTreeIter _tmp8_;
-	GdkPixbuf* _tmp9_;
-	GdkPixbuf* _tmp10_ = NULL;
-	GtkListStore* _tmp11_;
-	GtkTreeIter _tmp12_ = {0};
 	GtkListStore* _tmp13_;
-	GtkTreeIter _tmp14_;
-	GdkPixbuf* _tmp15_;
-	GtkViewport* _tmp16_;
+	GtkTreeIter _tmp14_ = {0};
+	GtkListStore* _tmp15_;
+	GtkTreeIter _tmp16_;
+	GdkPixbuf* _tmp17_;
+	gchar* _tmp18_ = NULL;
+	gchar* _tmp19_;
+	gchar* _tmp20_;
+	gchar* _tmp21_;
+	GdkPixbuf* _tmp22_;
+	GdkPixbuf* _tmp23_;
+	GdkPixbuf* pixbuf1;
+	GtkListStore* _tmp24_;
+	GtkTreeIter _tmp25_ = {0};
+	GtkListStore* _tmp26_;
+	GtkTreeIter _tmp27_;
+	GdkPixbuf* _tmp28_;
+	GtkIconView* _tmp29_;
+	GtkViewport* _tmp30_;
 	GtkViewport* viewport;
-	gint _tmp17_ = 0;
-	gint _tmp18_;
-	gint _tmp19_ = 0;
-	gint _tmp20_;
+	GtkViewport* _tmp31_;
+	GtkScrolledWindow* _tmp32_;
+	gint _tmp33_ = 0;
+	gint _tmp34_;
+	GtkScrolledWindow* _tmp35_;
+	gint _tmp36_ = 0;
+	gint _tmp37_;
+	GtkViewport* _tmp38_;
+	GtkIconView* _tmp39_;
+	GtkScrolledWindow* _tmp40_;
+	GtkViewport* _tmp41_;
+	GtkScrolledWindow* _tmp42_;
+	GError * _inner_error_ = NULL;
 	_data1_ = g_slice_new0 (Block1Data);
 	_data1_->_ref_count_ = 1;
 	self = (eComicsComic_Selection*) g_object_new (object_type, NULL);
@@ -211,41 +238,84 @@ eComicsComic_Selection* ecomics_comic_selection_construct (GType object_type) {
 	_tmp3_ = (GtkIconView*) gtk_icon_view_new_with_model ((GtkTreeModel*) _tmp2_);
 	g_object_ref_sink (_tmp3_);
 	_data1_->view = _tmp3_;
-	gtk_icon_view_set_pixbuf_column (_data1_->view, 0);
-	gtk_icon_view_set_text_column (_data1_->view, 1);
-	gtk_icon_view_set_item_orientation (_data1_->view, GTK_ORIENTATION_VERTICAL);
-	_tmp4_ = gtk_widget_render_icon ((GtkWidget*) _data1_->view, GTK_STOCK_ABOUT, GTK_ICON_SIZE_DIALOG, NULL);
-	pixbuf = _tmp4_;
-	_tmp5_ = ecomics_model;
-	gtk_list_store_append (_tmp5_, &_tmp6_);
-	_data1_->iter = _tmp6_;
-	_tmp7_ = ecomics_model;
-	_tmp8_ = _data1_->iter;
-	_tmp9_ = pixbuf;
-	gtk_list_store_set (_tmp7_, &_tmp8_, 0, _tmp9_, 1, "XKCD", -1);
-	_tmp10_ = gtk_widget_render_icon ((GtkWidget*) _data1_->view, GTK_STOCK_PRINT, GTK_ICON_SIZE_DIALOG, NULL);
-	_g_object_unref0 (pixbuf);
-	pixbuf = _tmp10_;
-	_tmp11_ = ecomics_model;
-	gtk_list_store_append (_tmp11_, &_tmp12_);
-	_data1_->iter = _tmp12_;
+	_tmp4_ = _data1_->view;
+	gtk_icon_view_set_pixbuf_column (_tmp4_, 0);
+	_tmp5_ = _data1_->view;
+	gtk_icon_view_set_text_column (_tmp5_, 1);
+	_tmp6_ = _data1_->view;
+	gtk_icon_view_set_item_orientation (_tmp6_, GTK_ORIENTATION_VERTICAL);
+	_tmp7_ = g_get_current_dir ();
+	_tmp8_ = _tmp7_;
+	_tmp9_ = g_strconcat (_tmp8_, "/assets/titles/xkcd.png", NULL);
+	_tmp10_ = _tmp9_;
+	_tmp11_ = gdk_pixbuf_new_from_file_at_scale (_tmp10_, 64, 64, TRUE, &_inner_error_);
+	_tmp12_ = _tmp11_;
+	_g_free0 (_tmp10_);
+	_g_free0 (_tmp8_);
+	pixbuf = _tmp12_;
+	if (_inner_error_ != NULL) {
+		_g_object_unref0 (scrolled);
+		block1_data_unref (_data1_);
+		_data1_ = NULL;
+		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
+		g_clear_error (&_inner_error_);
+		return NULL;
+	}
 	_tmp13_ = ecomics_model;
-	_tmp14_ = _data1_->iter;
-	_tmp15_ = pixbuf;
-	gtk_list_store_set (_tmp13_, &_tmp14_, 0, _tmp15_, 1, "Failure To Feed", -1);
-	g_signal_connect_data (_data1_->view, "selection-changed", (GCallback) ___lambda10__gtk_icon_view_selection_changed, block1_data_ref (_data1_), (GClosureNotify) block1_data_unref, 0);
-	_tmp16_ = (GtkViewport*) gtk_viewport_new (NULL, NULL);
-	g_object_ref_sink (_tmp16_);
-	viewport = _tmp16_;
-	g_object_get ((GtkWidget*) scrolled, "width-request", &_tmp17_, NULL);
-	_tmp18_ = _tmp17_;
-	g_object_get ((GtkWidget*) scrolled, "height-request", &_tmp19_, NULL);
-	_tmp20_ = _tmp19_;
-	gtk_widget_set_size_request ((GtkWidget*) viewport, _tmp18_, _tmp20_);
-	gtk_container_add ((GtkContainer*) viewport, (GtkWidget*) _data1_->view);
-	gtk_container_add ((GtkContainer*) scrolled, (GtkWidget*) viewport);
-	gtk_box_pack_start (G_TYPE_CHECK_INSTANCE_CAST (self, GTK_TYPE_BOX, GtkBox), (GtkWidget*) scrolled, TRUE, TRUE, (guint) 0);
+	gtk_list_store_append (_tmp13_, &_tmp14_);
+	_data1_->iter = _tmp14_;
+	_tmp15_ = ecomics_model;
+	_tmp16_ = _data1_->iter;
+	_tmp17_ = pixbuf;
+	gtk_list_store_set (_tmp15_, &_tmp16_, 0, _tmp17_, 1, "XKCD", -1);
+	_tmp18_ = g_get_current_dir ();
+	_tmp19_ = _tmp18_;
+	_tmp20_ = g_strconcat (_tmp19_, "/assets/titles/ftflogo.png", NULL);
+	_tmp21_ = _tmp20_;
+	_tmp22_ = gdk_pixbuf_new_from_file_at_scale (_tmp21_, 64, 64, TRUE, &_inner_error_);
+	_tmp23_ = _tmp22_;
+	_g_free0 (_tmp21_);
+	_g_free0 (_tmp19_);
+	pixbuf1 = _tmp23_;
+	if (_inner_error_ != NULL) {
+		_g_object_unref0 (pixbuf);
+		_g_object_unref0 (scrolled);
+		block1_data_unref (_data1_);
+		_data1_ = NULL;
+		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
+		g_clear_error (&_inner_error_);
+		return NULL;
+	}
+	_tmp24_ = ecomics_model;
+	gtk_list_store_append (_tmp24_, &_tmp25_);
+	_data1_->iter = _tmp25_;
+	_tmp26_ = ecomics_model;
+	_tmp27_ = _data1_->iter;
+	_tmp28_ = pixbuf1;
+	gtk_list_store_set (_tmp26_, &_tmp27_, 0, _tmp28_, 1, "Failure To Feed", -1);
+	_tmp29_ = _data1_->view;
+	g_signal_connect_data (_tmp29_, "selection-changed", (GCallback) ___lambda8__gtk_icon_view_selection_changed, block1_data_ref (_data1_), (GClosureNotify) block1_data_unref, 0);
+	_tmp30_ = (GtkViewport*) gtk_viewport_new (NULL, NULL);
+	g_object_ref_sink (_tmp30_);
+	viewport = _tmp30_;
+	_tmp31_ = viewport;
+	_tmp32_ = scrolled;
+	g_object_get ((GtkWidget*) _tmp32_, "width-request", &_tmp33_, NULL);
+	_tmp34_ = _tmp33_;
+	_tmp35_ = scrolled;
+	g_object_get ((GtkWidget*) _tmp35_, "height-request", &_tmp36_, NULL);
+	_tmp37_ = _tmp36_;
+	gtk_widget_set_size_request ((GtkWidget*) _tmp31_, _tmp34_, _tmp37_);
+	_tmp38_ = viewport;
+	_tmp39_ = _data1_->view;
+	gtk_container_add ((GtkContainer*) _tmp38_, (GtkWidget*) _tmp39_);
+	_tmp40_ = scrolled;
+	_tmp41_ = viewport;
+	gtk_container_add ((GtkContainer*) _tmp40_, (GtkWidget*) _tmp41_);
+	_tmp42_ = scrolled;
+	gtk_box_pack_start (G_TYPE_CHECK_INSTANCE_CAST (self, GTK_TYPE_BOX, GtkBox), (GtkWidget*) _tmp42_, TRUE, TRUE, (guint) 0);
 	_g_object_unref0 (viewport);
+	_g_object_unref0 (pixbuf1);
 	_g_object_unref0 (pixbuf);
 	_g_object_unref0 (scrolled);
 	block1_data_unref (_data1_);

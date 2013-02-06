@@ -133,7 +133,9 @@ glib-object.h
 -
 gtk/gtk.h
 -
-gio/gio.h
+stdlib.h
+-
+string.h
 -
 gdk-pixbuf/gdk-pixbuf.h
 -
