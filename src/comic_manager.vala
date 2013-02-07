@@ -26,6 +26,7 @@ namespace eComics {
     
     public class Comic_Manager : GLib.Object {
 	public static eComics_MW main_window;
+	public static Comic_Connector current_comic;
 	
 	public static Comic_Manager(){
 	
@@ -39,6 +40,11 @@ namespace eComics {
 	    switch(title){
 		default:
 		    Comic_Manager.main_window.set_content(new Gtk.Label("RUH ROH! We were unable to load this comic!"));
+		    break;
+		case "XKCD":
+		    current_comic = new XKCD_Connector();
+		    print("SELECTING XKCD");
+		    current_comic.Retrieve_Comic(1);
 		    break;
 	    }
 	}

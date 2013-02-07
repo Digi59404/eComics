@@ -26,11 +26,28 @@ namespace eComics {
     
     public class Comic_Connector : GLib.Object {
     
+    
 	public Comic_Connector(){
 	
 	}
 	
-	public virtual void Retrieve_Comic(string issue){
+	public virtual void Retrieve_Comic(int issue){
+	
+	}
+		
+        public virtual void First_Comic(){
+	
+	}
+	
+	public virtual void Next_Comic(){
+	
+	}
+	
+	public virtual void Prev_Comic(){
+	
+	}
+	
+	public virtual void Last_Comic(){
 	
 	}
     }

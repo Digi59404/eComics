@@ -25,6 +25,7 @@ using Gtk;
 namespace eComics {
 
     public Gtk.ListStore model;
+    public Gtk.TreeIter iter;
     
     public class Comic_Selection : Gtk.Box {
     
@@ -66,7 +67,8 @@ namespace eComics {
 
 		    model.get_value (iter, 0, out icon); 
 		    model.get_value (iter, 1, out title); 
-		    //stdout.printf ("%s: %p\n", (string) title, ((Gdk.Pixbuf) icon));
+		  //  model.get_value (iter, 2, out name); 
+		    //stdout.printf ("%s: %p\n", model.name, ((Gdk.Pixbuf) icon));
 		    Comic_Manager.Open_Comic((string)title);
 		}
 	    });
@@ -78,6 +80,13 @@ namespace eComics {
 	    scrolled.add (viewport);
 	    //Add the scroll window.
 	    base.pack_start(scrolled, true, true, 0);
+	}
+	
+	public void Add_Comic(string title = "MISSING TITLE", string icon = null){
+	    var pixbuf1 = new Gdk.Pixbuf.from_file_at_scale (Environment.get_current_dir ()+"/assets/titles/"+icon, 64, 64, true);
+	    model.append (out iter);
+	    model.set (iter, 0, pixbuf1, 1, title);
+	
 	}
 
     }

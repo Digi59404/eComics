@@ -23,13 +23,66 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
  namespace eComics {
     
     public class XKCD_Connector : Comic_Connector {
+	public int current_issue = 1;
     
 	public XKCD_Connector(){
 	
 	}
 	
-	public override void Retrieve_Comic(string issue){
+	public override void Retrieve_Comic(int issue=1){
+	    uint8[] site_contents;
+	    string etag_out;
+	    uint8[] img_contents;
+	    
+	    var site = GLib.File.new_for_uri("http://xkcd.com/"+issue.to_string()+"/");
+	    site.load_contents(null, out site_contents, out etag_out);
+	    
+	    try {
+		//Image URL (for hotlinking/embedding): http://imgs.xkcd.com/comics/expedition.png
+		var regex_len = """http://imgs\.xkcd\.com/comics/+.+\.png""";
+		Regex regex = new Regex ("""http://imgs\.xkcd\.com/comics/*.*\.[a-zA-Z][a-zA-Z][a-zA-Z]""");
+		
+		GLib.MatchInfo match;
+		if (regex.match ((string)site_contents, 0, out match)){
+
+			var img_site = GLib.File.new_for_uri(match.fetch(0));
+			img_site.load_contents(null, out img_contents, out etag_out);
+			
+			var img_pixbuf_ldr = new Gdk.PixbufLoader();
+			img_pixbuf_ldr.write(img_contents);
+			img_pixbuf_ldr.close();
+			
+			Comic_Manager.main_window.set_content(new Gtk.Image.from_pixbuf(img_pixbuf_ldr.get_pixbuf()));
+			
+			this.current_issue = issue;
+		} else {
+		    Comic_Manager.main_window.set_content(new Gtk.Label("RUH ROH! We were unable to load this comic!")); 
+		}
+		
+	    } catch (RegexError e){
+		Comic_Manager.main_window.set_content(new Gtk.Label("RUH ROH! We were unable to load this comic!"));
+		print("COMIC LOAD ERROR: "+e.message);
+	    }   
+	}
 	
+	public override void First_Comic(){
+	    this.Retrieve_Comic(1);
+	}
+	public override void Prev_Comic(){
+	    if(this.current_issue == 1){
+		return;
+	    } else {
+		var next_comic = this.current_issue - 1;
+		this.Retrieve_Comic(next_comic);
+	    }
+	
+	}
+	public override void Next_Comic(){
+	    var next_comic = this.current_issue + 1;
+	    this.Retrieve_Comic(next_comic);
+	}
+	public override void Last_Comic(){
+	    //ToDo
 	}
     }
 }

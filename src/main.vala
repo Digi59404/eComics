@@ -158,19 +158,19 @@ namespace eComics {
             mode.show_all();
             
             btn1.clicked.connect (() => {
-                print("HOLY COWS");
+                Comic_Manager.current_comic.First_Comic();
 
             });
             btn2.clicked.connect (() => {
-                print("HOLY COWS");
+                Comic_Manager.current_comic.Prev_Comic();
 
             });
             btn3.clicked.connect (() => {
-                print("HOLY COWS");
+                Comic_Manager.current_comic.Next_Comic();
 
             });
             btn4.clicked.connect (() => {
-                print("HOLY COWS");
+                Comic_Manager.current_comic.Last_Comic();
 
             });
             

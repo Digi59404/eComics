@@ -40,16 +40,13 @@ GtkButton {
     -GtkButton-child-displacement-y: 0;
     -GtkButton-default-border: 0;
     -GtkButton-image-spacing: 4px;
-    -GtkButton-inner-border: 3;
+    -GtkButton-inner-border: 2;
     -GtkButton-interior-focus: true;
 
 
     background: none;
 
-    -unico-inner-stroke-gradient: -gtk-gradient (linear,
-        left top, left bottom,
-        from (alpha (#000, 0.00)),
-        to (alpha (#000, 0.00)));
+
 }
 
 GtkToolItem {
@@ -58,15 +55,12 @@ GtkToolItem {
     -GtkButton-child-displacement-y: 0;
     -GtkButton-default-border: 0;
     -GtkButton-image-spacing: 4px;
-    -GtkButton-inner-border: 3;
+    -GtkButton-inner-border: 2;
     -GtkButton-interior-focus: true;
 
     background: none;
 
-    -unico-inner-stroke-gradient: -gtk-gradient (linear,
-        left top, left bottom,
-        from (alpha (#000, 0.00)),
-        to (alpha (#000, 0.00)));
+
 }
 
 GtkIconView {
